@@ -11,6 +11,8 @@
 4. [Fazit](#Fait)
 
 ## Einführung/Konzept
+Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wird, findet ein Visualisierungsprojekt statt. In diesem Semester wurden Themen aus der UN Sustainable Development Goals behandelt. Diese beinhalten 17 Ziele zur nachhaltige Entwicklung, die von der Vereinten Nationen erreicht werden sollen. Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene dienen. 
+
 
 ## Daten
 ### Datenquelle
