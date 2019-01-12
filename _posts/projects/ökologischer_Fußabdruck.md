@@ -1,6 +1,6 @@
 ## Abstract
 
-# Table of contents
+## Inhalt
 1. Einführung
 2. Daten
     1. Datenquellen
