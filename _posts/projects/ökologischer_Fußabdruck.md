@@ -1,14 +1,14 @@
 ## Abstract
 
 # Table of contents
-1. [Einführung]
-2. [Daten]
-    1. [Datenquellen]
-    2. [Datenerhebung]
-    3. [Datenaufbereitung]
-    4. [Aggregation]
-3. [Prototyp/Ergebnisse]
-4. [Fazit]
+1. Einführung
+2. Daten
+    1. Datenquellen
+    2. Datenerhebung
+    3. Datenaufbereitung
+    4. Aggregation
+3. Prototyp/Ergebnisse
+4. Fazit
 
 ## Einführung	/	Konzept
 
