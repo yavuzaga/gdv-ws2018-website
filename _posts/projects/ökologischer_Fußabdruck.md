@@ -3,10 +3,10 @@
 ## Inhalt
 1. Einführung
 2. Daten
-    1. Datenquellen
-    2. Datenerhebung
-    3. Datenaufbereitung
-    4. Aggregation
+    2.1 Datenquellen
+    2.2 Datenerhebung
+    2.3 Datenaufbereitung
+    2.4 Aggregation
 3. Prototyp/Ergebnisse
 4. Fazit
 
