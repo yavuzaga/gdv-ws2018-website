@@ -1,14 +1,14 @@
 ## Abstract
 
 # Table of contents
-1. [Einführung](#introduction)
-2. [Daten](#paragraph1)
-    1. [Datenquellen](#subparagraph1)
+1. [Einführung]
+2. [Daten]
+    1. [Datenquellen]
     2. [Datenerhebung]
     3. [Datenaufbereitung]
     4. [Aggregation]
-3. [Prototyp	/	Ergebnisse]
-4. [Fazit](#paragraph2)
+3. [Prototyp/Ergebnisse]
+4. [Fazit]
 
 ## Einführung	/	Konzept
 
