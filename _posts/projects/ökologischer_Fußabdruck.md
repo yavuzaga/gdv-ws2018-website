@@ -1,7 +1,7 @@
 ## Abstract
 
 ## Inhalt
-1. [Einführung/Konzept](#Einführung/Konzept)
+1. [Einführung](#Einführung)
 2. [Daten](#Daten)
     1. [Datenquelle](#subparagraph1)
     2. [Datenerhebung](#subparagraph1)
