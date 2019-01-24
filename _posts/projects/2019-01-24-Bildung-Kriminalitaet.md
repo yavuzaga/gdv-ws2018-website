@@ -86,7 +86,7 @@ Zuerst gibt es die Klasse Row, welche eine Zeile aus unserer Datenquelle widersp
 data class Row(var Country: String, var Series: String,
               var IndicatorCode: String, var Source: String,
               var year_1960: Double, var year_1961: Double, 
-              ... var year_2017)
+              ... var year_2017: Double)
 {% endhighlight %}
 
 Diese Klasse verfügt über eine Methode, welche sich selbst in die transformierte Version umwandelt. Diese Transformationsfunktion löscht im IndicatorCode zusätzliche Kommata, da diese in MongoDB und bei der Datenverarbeitung zu zusätzlichen Problemen führten. Des Weiteren wurden die Werte der Investitionen, bei denen der Wert “0.0” war, der wiederum nur bedeutet, dass keine Daten hierzu verfügbar waren, durch leere Strings ersetzt, um einen falschen Eindruck bei der Datenvisualisierung zu verhindern.
@@ -99,7 +99,9 @@ fun createTransformation(Year: Int, Value: Double): Row_Transformed {
         val source: String = this.Source
         val year: String = Year.toString()
         val value: String = if (Value != 0.0) Value.toString() else ""
-        return Row_Transformed(Country = country, Series = series, IndicatorCode = indicatorCode, Source = source, Year = year, Value = value)
+        return Row_Transformed(Country = country, Series = series, <br/>
+        IndicatorCode = indicatorCode, Source = source, <br/>
+        Year = year, Value = value)
 }
 {% endhighlight %}
 
@@ -115,7 +117,9 @@ data class Row_Transformed(var Country: String,
                            var Value: String) {}
 
 companion object {
-       fun write_toCSV(x: ArrayList<Row_Transformed>, FILE_PATH: String = "./../produktiv_daten/cleaned/investment_percentage_GDP.csv", CSV_HEADER: String = "ID,Country,Series,IndicatorCode,Source,Year"): Unit {
+       fun write_toCSV(x: ArrayList<Row_Transformed>, FILE_PATH: <br/>
+        String = "./../produktiv_daten/cleaned/investment_percentage_GDP.csv", <br/>
+         CSV_HEADER: String = "ID,Country,Series,IndicatorCode,Source,Year"): Unit { <br/>
            var fileWriter: FileWriter? = null
            try {
                fileWriter = FileWriter(FILE_PATH)
@@ -149,7 +153,7 @@ companion object {
 
 ##### Web scraping
 
-Hier mussten die Daten zuerst gescraped werden. Hierfür nutzten wir die Chrome Extension “WebScraper” von [https://www.webscraper.io/](https://www.webscraper.io/). Sie ermöglicht auf schnelle, zuverlässige Art und Weise statische Seiten zu scrapen. Hierfür werden sogenannte SiteMaps erstellt. Diese benötigen den Link, auf welchem die Daten zu finden sind und lassen sich per XPath oder über die Chrome Developer Tools per “Select” definieren. Wir nutzen hier vor allem die Funktion “Table Scraping”, bei der man nur die Struktur der Tabelle angibt, von welcher die Daten gespeichert werden sollen.
+Hier mussten die Daten zuerst gescraped werden. Hierfür nutzten wir die Chrome Extension “WebScraper” von [https://www.webscraper.io/](https://www.webscraper.io). Sie ermöglicht auf schnelle, zuverlässige Art und Weise statische Seiten zu scrapen. Hierfür werden sogenannte SiteMaps erstellt. Diese benötigen den Link, auf welchem die Daten zu finden sind und lassen sich per XPath oder über die Chrome Developer Tools per “Select” definieren. Wir nutzen hier vor allem die Funktion “Table Scraping”, bei der man nur die Struktur der Tabelle angibt, von welcher die Daten gespeichert werden sollen.
 
 Dadurch war es innerhalb kürzester Zeit möglich, den entsprechenden Scraper zu erstellen und die Daten in ein CSV-Format zu exportieren.
 
