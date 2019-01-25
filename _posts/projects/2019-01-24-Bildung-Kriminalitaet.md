@@ -15,7 +15,7 @@ author: Patrick Hentschel, Daniel Eggert, Dario Capuana, Ferhat Ayaydin und Ahme
 ---
 ## Abstract
 
-Gegenstand unseres GDV-Projektes im Wintersemester 2018/2019 waren die 17 Ziele für nachhaltige Entwicklung, welche von den Vereinten Nationen (UN) ins Leben gerufen wurden, um nachhaltige Entwicklung auf ökonomischer, sozialer und ökologischer Ebene zu gewährleisten. Einige der sogenannten SDGs (= UN Sustainable Development Goals) waren Armut zu bekämpfen, für bessere Bildung und Gesundheit zu sorgen. 
+Thema unseres GDV-Projektes im Wintersemester 2018/2019 waren die 17 Ziele für nachhaltige Entwicklung, welche von den Vereinten Nationen (UN) ins Leben gerufen wurden, um nachhaltige Entwicklung auf ökonomischer, sozialer und ökologischer Ebene zu gewährleisten (Quelle?). Einige der sogenannten SDGs (= UN Sustainable Development Goals) sind Armut zu bekämpfen, für bessere Bildung und Gesundheit zu sorgen. 
 
 ## Unser Konzept
 
@@ -99,8 +99,8 @@ fun createTransformation(Year: Int, Value: Double): Row_Transformed {
         val source: String = this.Source
         val year: String = Year.toString()
         val value: String = if (Value != 0.0) Value.toString() else ""
-        return Row_Transformed(Country = country, Series = series, <br/>
-        IndicatorCode = indicatorCode, Source = source, <br/>
+        return Row_Transformed(Country = country, Series = series,
+        IndicatorCode = indicatorCode, Source = source,
         Year = year, Value = value)
 }
 {% endhighlight %}
@@ -117,9 +117,9 @@ data class Row_Transformed(var Country: String,
                            var Value: String) {}
 
 companion object {
-       fun write_toCSV(x: ArrayList<Row_Transformed>, FILE_PATH: <br/>
-        String = "./../produktiv_daten/cleaned/investment_percentage_GDP.csv", <br/>
-         CSV_HEADER: String = "ID,Country,Series,IndicatorCode,Source,Year"): Unit { <br/>
+       fun write_toCSV(x: ArrayList<Row_Transformed>, FILE_PATH: 
+        String = "./../produktiv_daten/cleaned/investment_percentage_GDP.csv",
+         CSV_HEADER: String = "ID,Country,Series,IndicatorCode,Source,Year"): Unit {
            var fileWriter: FileWriter? = null
            try {
                fileWriter = FileWriter(FILE_PATH)
@@ -173,20 +173,12 @@ Sinnvolle Auswahl relevanter Experimente.
   <figcaption >Eine Bildbeschreibung</figcaption>
 </figure>
 
-## Prototyp/Ergebnisse
-
-### Visualisierung
-Ergebnisse, Design, Prototyp. Darstellungen echter oder ausgewählter Daten.
-
-### Erkenntnisse
-Was haben Sie herausgefunden? Können Sie ein/zwei Aussagen oder Stories hervorheben?
-
-### Implementierung
+## Implementierung
 
 Als Programmiersprache für die Visualisierungen verwenden wir Python, denn Python ist für Datenanwendungen sehr verbreitet und genießt ein hohes Maß an Unterstützung. Die Anwendung selbst wird mit Hilfe eines Python Flask Servers gesteuert.
 Für die Visualisierung verwenden wir die Python Bibliothek Dash. Diese bietet eine Vielzahl von Visualisierungsmöglichkeiten. Außerdem ist die gute Dokumentation der Bibliothek ein großer Vorteil. In unserem Fall haben wir uns für das Linechart entschieden. Dieses musste optisch an die Pläne angepasst und mit Daten befüllt werden. Die Visualisierungen werden an den Dash Server per HTML-Variable übergeben, welche dieser anschließend rendert. Eine HTML kann auch mehrere Visualisierungen enthalten. Für die Karte verwenden wir die Python Bibliothek Plotly. Da Dash auf Plotly aufbaut, war es uns möglich, die Dash Visualisierungen mit der Plotly Karte in eine HTML-Variable zu packen.
 
-#### Probleme bei der Implementierung
+### Probleme bei der Implementierung
 
 - Leaflet und Dash ließen sich nicht auf einem Dashboard verknüpfen
 
@@ -195,33 +187,30 @@ Für die Visualisierung verwenden wir die Python Bibliothek Dash. Diese bietet e
 
 ### Tools
 
-###### Prototyp
+#### Prototyp
 
 - Für den Prototypen haben wir Tableau verwendet, da es uns dadurch möglich war, schnell Ergebnisse zu sehen. Dies ermöglichte uns einen Vergleich der Datensätze. Zudem gewannen wir dadurch erste Erkenntnisse.
 
-###### Setup
+#### Setup
 
 - Da wir anfangs planten die Karte auf einer einzelnen Seite anzuzeigen, haben wir Dash-Line-Charts  und eine leaflet Map auf verschiedenen Flask Routen aufgesetzt.
 
-###### Pre Final
+#### Pre Final
 
-###### Line-Chart und Map
+#### Line-Chart und Map
 
 - Die Line-Charts und Leaflet Map waren einzeln funktionsfähig, aber noch nicht verknüpft.
 
-###### Final
+#### Final
 
 - Durch das Anzeigen aller Visualisierungen auf einem Screen wurde die Leaflet Choroplethenkarte verworfen und eine von Plotly verwendet, denn diese lässt sich einfacher mit Dash-Visualisierungen verknüpfen.
 
+## Das Ergebnis
 
-{% highlight javascript %}
-function setup() {
-  Data data = loadData();
-  doSomeVisualization(data);
-}
-{% endhighlight %}
+Unsere Webanwendung zeigt die Entwicklung der Bildungsinvestitionen und des Crime Index einzelner Länder. Sie ist in zwei Hälften geteilt (siehe Bild): Die obere Hälfte enthält eine Choroplethenkarte, die den Crime Index der einzelnen Länder visualisiert. In der unteren Hälfte sind drei Diagramme zu einem Land, das vorher in der Choroplethenkarte ausgewählt wurde, sichtbar. Alle Diagramme haben eine Zeitachse (in Jahren). Links ist ein Liniendiagramm zu sehen, das die Investitionen in Prozent (Anteil vom BIP) anzeigt. Mittig ist ein Slope Chart angeordnet, der die Anzahl (Angabe in Millionen) der Menschen mit dem entsprechenden Bildungsgrad (primary, secondary und tertiary) anzeigt. Rechts ist ein weiteres Liniendiagramm zum Crime Index angeordnet,um zusätzlich zur Choroplethenkarte die Entwicklung des Crime Index nachvollziehen zu können. Mittig zwischen den beiden Hälften ist ein Slider, mit dem das entsprechende Jahr für die Choroplethenkarte ausgewählt werden kann.
 
-
+### Erkenntnisse
+Was haben Sie herausgefunden? Können Sie ein/zwei Aussagen oder Stories hervorheben?
 
 ## Fazit
 
@@ -243,7 +232,7 @@ höher priorisiert als der Faktor Bildung, um nachhaltige Ergebnisse zu erzielen
 
 ### Verbesserungsvorschläge
 
-In folgenden Punkten sind Verbesserungsvorschläge, wir wir während der iExpo bekommen haben:
+In folgenden Punkten sind Verbesserungsvorschläge bezüglich unserer Webanwendung, die wir während der iExpo bekommen haben:
 
 - Ausgewählte Länder sollten auf der Karte angezeigt und farblich hervorgehoben oder umrandet werden
 - Nicht ausgewählte Länder ausgrauen
