@@ -12,6 +12,9 @@ image:
     caption: Teaser
 author: Patrick Hentschel, Daniel Eggert, Dario Capuana, Ferhat Ayaydin und Ahmed Warsame
 
+gallery:
+    - image_url: images\gallery\UNDataSchritt1.jpg
+      caption: Lorem ipsum
 ---
 ## Abstract
 
@@ -42,10 +45,7 @@ Quelle: Wir haben die Daten von [OpenStreetMap](http://openstreetmap.org/) genut
 
 Die eingelesenen Daten werden in Pentaho (ETL Tool) verarbeitet. Zuerst mussten die Daten gefiltert und aufgeteilt werden, da nur die Primary,Secondary und Tertiary Abschlüsse für uns relevant waren. Dafür gab es 3 Filteroperationen, die jeweils auf die Spalte “Series” angewandt wurden.
 
-<figure>
-  <img src="{{ site.urlimg }}/meinProjekt/UNData Schritt 1.jpg" />
-  <figcaption >Eine Bildbeschreibung</figcaption>
-</figure>
+{% include gallery %}
 
 Jede Filteroperation hat die Spalte jeweils nach folgenden Texten durchsucht:
 - Students enrolled in primary education (thousands)
