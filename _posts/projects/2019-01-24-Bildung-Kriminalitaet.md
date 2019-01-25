@@ -15,7 +15,7 @@ author: Patrick Hentschel, Daniel Eggert, Dario Capuana, Ferhat Ayaydin und Ahme
 ---
 ## Abstract
 
-Thema unseres GDV-Projektes im Wintersemester 2018/2019 waren die 17 Ziele für nachhaltige Entwicklung, welche von den Vereinten Nationen (UN) ins Leben gerufen wurden, um nachhaltige Entwicklung auf ökonomischer, sozialer und ökologischer Ebene zu gewährleisten (Quelle?). Einige der sogenannten SDGs (= UN Sustainable Development Goals) sind Armut zu bekämpfen, für bessere Bildung und Gesundheit zu sorgen. 
+Thema unseres GDV-Projektes im Wintersemester 2018/2019 waren die 17 Ziele für nachhaltige Entwicklung, welche von den Vereinten Nationen (UN) ins Leben gerufen wurden, um nachhaltige Entwicklung auf ökonomischer, sozialer und ökologischer Ebene zu gewährleisten (Quelle?). Einige der sogenannten SDGs (= UN Sustainable Development Goals) sind Armut zu bekämpfen, für bessere Bildung und Gesundheit zu sorgen.
 
 ## Unser Konzept
 
@@ -40,9 +40,14 @@ Quelle: Wir haben die Daten von [OpenStreetMap](http://openstreetmap.org/) genut
 
 ##### UNData Schritt 1
 
-Die eingelesenen Daten werden in Pentaho (ETL Tool) verarbeitet. Zuerst mussten die Daten gefiltert und aufgeteilt werden, da nur die Primary,Secondary und Tertiary Abschlüsse für uns relevant waren. Dafür gab es 3 Filteroperationen, die jeweils auf die Spalte “Series” angewandt wurden. 
+Die eingelesenen Daten werden in Pentaho (ETL Tool) verarbeitet. Zuerst mussten die Daten gefiltert und aufgeteilt werden, da nur die Primary,Secondary und Tertiary Abschlüsse für uns relevant waren. Dafür gab es 3 Filteroperationen, die jeweils auf die Spalte “Series” angewandt wurden.
 
-Jede Filteroperation hat die Spalte jeweils nach folgenden Texten durchsucht: 
+<figure>
+  <img src="{{ site.urlimg }}/meinProjekt/UNData Schritt 1.jpg" />
+  <figcaption >Eine Bildbeschreibung</figcaption>
+</figure>
+
+Jede Filteroperation hat die Spalte jeweils nach folgenden Texten durchsucht:
 - Students enrolled in primary education (thousands)
 - Students enrolled in secondary education (thousands)
 - Students enrolled in tertiary education (thousands)
@@ -85,7 +90,7 @@ Zuerst gibt es die Klasse Row, welche eine Zeile aus unserer Datenquelle widersp
 {% highlight java %}
 data class Row(var Country: String, var Series: String,
               var IndicatorCode: String, var Source: String,
-              var year_1960: Double, var year_1961: Double, 
+              var year_1960: Double, var year_1961: Double,
               ... var year_2017: Double)
 {% endhighlight %}
 
@@ -117,7 +122,7 @@ data class Row_Transformed(var Country: String,
                            var Value: String) {}
 
 companion object {
-       fun write_toCSV(x: ArrayList<Row_Transformed>, FILE_PATH: 
+       fun write_toCSV(x: ArrayList<Row_Transformed>, FILE_PATH:
         String = "./../produktiv_daten/cleaned/investment_percentage_GDP.csv",
          CSV_HEADER: String = "ID,Country,Series,IndicatorCode,Source,Year"): Unit {
            var fileWriter: FileWriter? = null
@@ -159,10 +164,10 @@ Dadurch war es innerhalb kürzester Zeit möglich, den entsprechenden Scraper zu
 
 Die exportierten Sitemaps werden alle im ETL-Tool Pentaho verarbeitet.
 
-Da unser Webscraper automatisch die folgende Spalte in die CSV-Datei hinzufügt: 
+Da unser Webscraper automatisch die folgende Spalte in die CSV-Datei hinzufügt:
 “web_scraper_start_url”, welche über die Information in der URL enthält, aus welchem Jahr die Daten stammen, wird diese Spalte von uns in “year” umbenannt. Danach im Schritt “Replace URL” werden folgende Werte substituiert:
 
-Hier ist zu beachten, dass der URL-Builder von numbeo zwar “title=” als Parameter benutzt. Jedoch steht hier das Jahr, welches man auslesen möchte. Kurzfristig gab es zwischen 2014-2015 den Zusatz -Q1 für Quartal, dieser wurde danach jedoch wieder verworfen. Deshalb ist die zusätzliche Substituierung von “-Q1” vorhanden. Anschließend wird die bereinigte CSV-Datei erstellt. 
+Hier ist zu beachten, dass der URL-Builder von numbeo zwar “title=” als Parameter benutzt. Jedoch steht hier das Jahr, welches man auslesen möchte. Kurzfristig gab es zwischen 2014-2015 den Zusatz -Q1 für Quartal, dieser wurde danach jedoch wieder verworfen. Deshalb ist die zusätzliche Substituierung von “-Q1” vorhanden. Anschließend wird die bereinigte CSV-Datei erstellt.
 
 
 ## Prozess
@@ -214,7 +219,7 @@ Was haben Sie herausgefunden? Können Sie ein/zwei Aussagen oder Stories hervorh
 
 ## Fazit
 
-Im Allgemeinen lässt sich zusammenfassen, dass es keinen erkennbaren Zusammenhang zwischen der Kriminalitätsrate und den Bildungsausgaben gibt. Es ist sogar zu beobachten, dass in manchen Ländern trotz Anstieg der Bildungsinvestitionen der Crime Index auch rapide ansteigt wie z.b. in Brasilien. 
+Im Allgemeinen lässt sich zusammenfassen, dass es keinen erkennbaren Zusammenhang zwischen der Kriminalitätsrate und den Bildungsausgaben gibt. Es ist sogar zu beobachten, dass in manchen Ländern trotz Anstieg der Bildungsinvestitionen der Crime Index auch rapide ansteigt wie z.b. in Brasilien.
 
 Auffälligkeiten gibt es in folgenden Ländern:
 
@@ -238,6 +243,3 @@ In folgenden Punkten sind Verbesserungsvorschläge bezüglich unserer Webanwendu
 - Nicht ausgewählte Länder ausgrauen
 - Intuitivere Möglichkeit, um ein Land statt zwei auszuwählen
 - Stärkere Markierung der ausgewählten Länder in der Überschrift der Line Charts  
-
-
-
