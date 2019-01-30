@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<id>http://localhost:4000/</id>
 	<title>Sustainable Development Goals | Hochschule Mannheim</title>
-	<updated>2019-01-30T21:10:01+01:00</updated>
+	<updated>2019-01-30T21:12:31+01:00</updated>
 
 	<subtitle>»GDV - Grundlagen der Informationsvisualisierung« ist ein Kurs an der Hochschule Mannheim unter der Leitung von Till Nagel.</subtitle>
 
@@ -45,7 +45,6 @@
 			
 			<summary></summary>
 			<content type="html" xml:base="http://localhost:4000/projects/footprint/">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-
 &lt;p&gt;Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Diesen Verbrauch den wir erzeugen, wird als den ökologischen Fußabdruck dargestellt. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.&lt;/p&gt;
 
 &lt;h2 id=&quot;inhalt&quot;&gt;Inhalt&lt;/h2&gt;
