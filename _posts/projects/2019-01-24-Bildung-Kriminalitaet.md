@@ -2,7 +2,7 @@
 layout: page
 title:  "Auswirkung von Bildung auf Kriminalität"
 subheadline: Kann man durch höhere Investitionen in Bildung Gewalt entgegenwirken?
-teaser: 
+teaser:
 header: no
 show_meta: false
 categories:
@@ -185,13 +185,18 @@ Im Allgemeinen lässt sich zusammenfassen, dass es keinen erkennbaren Zusammenha
 
 Auffälligkeiten gibt es in folgenden Ländern:
 
-Venezuela:
-- Trotz unterschiedlicher Bildungsinvestitionen bleibt der Crime Index in Venezuela in
-fast jedem Jahr gleich und ist einer der höchsten weltweit.
+Äthiopien:
+- Trotz insgesamt ansteigenden Bildungsausgaben steigt der Crime Index an.
 
 Brasilien:
 - Hier stiegen die Bildungsausgaben kontinuierlich an, jedoch stieg zugleich der
 Crime Index an.
+
+Honduras
+- Trotz Anstieg der Bildungsausgaben steigt der Crime Index an.
+
+Afghanistan
+- Trotz unterschiedlichen Bildungsausgaben sinkt Crime Index kontinuierlich.
 
 ### Verbesserungsvorschläge
 
@@ -209,5 +214,3 @@ Unsere Vermutung, dass steigende Investition in Bildung weniger Kriminalität zu
 Unsere Annahme: Um Kriminalität effizient entgegenzuwirken, sind Maßnahmen gegen beispielsweise Drogenkriege in Brasilien notwendig. Solche Maßnahmen oder Faktoren wären somit höher priorisiert als der Faktor Bildung, um nachhaltige Ergebnisse zu erzielen.
 
 Ebenso vermuten wir, dass Investitionen in Bildung keine erkennbaren Auswirkungen von heute auf morgen haben können, da Bildung und ihre erhofften positiven Ergebnisse einige Jahre beanspruchen können.  
-
-
