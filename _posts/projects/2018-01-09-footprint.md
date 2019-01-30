@@ -8,7 +8,7 @@ categories:
 image:
     title: footprint\Poster.jpg
     caption: Teaser
-author: Yavuz Azal, Arif Bozkurt, Benedikt Herbst, Vu Tuannah, Thear Aldefai 
+author: Yavuz Azal, Arif Bozkurt, Benedikt Herbst, Vu Tuananh, Thear Aldefai 
 ---
 
 ## Abstract
