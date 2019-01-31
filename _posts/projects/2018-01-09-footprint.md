@@ -27,7 +27,6 @@ Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen
         1. [Treemap](#Treemap)
         2. [Säulendiagramm](#Säulendiagramm)
         3. [Linendiagramm](#Linendiagramm)
-        4. [Linendiagramm](#Linendiagramm)
     2. [Visualisierung mit amChart](#Visualisierung)
         1. [Library](#Library)
         2. [container](#container)
@@ -41,7 +40,6 @@ Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen
             2. [Legende](#Legende)
         5. [Events](#Events)
         6. [Interaction](#Interaction)
- 
 6. [Vergleich der Framworks amCharts und D3.js](#Vergleich der Framworks amCharts und D3.js)
 6. [Erkenntnisse](#Erkenntnisse)
 7. [Fazit](#Fazit)
