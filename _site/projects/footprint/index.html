@@ -24,7 +24,7 @@
 
 	<!-- Search Engine Optimization -->
 	<meta name="description" content="Abstract
-Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Diesen Verbrauch den wir erzeugen, wird als den ökologischen Fußabdruck dargestellt. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.
+Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Dieser Verbrauch wird auch als ökologischer Fußabdruck bezeichnet. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.
 
 Inhalt
 
@@ -37,69 +37,71 @@ Inhalt
       Datenaufbereitung
     
   
-  Visualisierung
+  Prozess
+  Prototypen
     
-      Prozess
-      Treemap
-      Säulendiagramm
-      Linendiagramm
+      Visualisierung mit D3.js
+        
+          Treemap
+          Säulendiagramm
+          Linendiagramm
+          Linendiagramm
+        
+      
+      Visualisierung mit amChart
+        
+          Library
+          container
+          Treemap
+            
+              Biokapazität Treemap
+              Ökologischer Fußabdruck
+              Treemap Text
+              Treemap hover methoden
+            
+          
+          XYChart
+            
+              series
+              Legende
+            
+          
+          Events
+          Interaction
+        
+      
     
   
-  Prototyp/Ergebnisse
-  Implementierung
+  Vergleich der Framworks amCharts und D3.js
+  Erkenntnisse
   Fazit
 
 
 Einführung
 In diesem Semester wurden als Thema die Sustainable Development Goals der UN behandelt. 
 Diese beinhalten 17 Ziele zur nachhaltigen Entwicklung, die von den Vereinten Nationen erreicht werden sollen. 
-Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wird, findet ein Visualisierungsprojekt statt. In diesem Projekt konzentrieren wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltet. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem Positiven Wert eine Reserve und bei einem negativen Wert einen Defizit.
+Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wurde, fand ein Visualisierungsprojekt statt. In diesem Projekt konzentrierten wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltete. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem positiven Wert eine Reserve und bei einem negativen Wert ein Defizit.
 
 These
 Ein hoher ökologischer Fußabdruck eines Landes besagt nicht, dass der ökologische Fußabdruck pro Kopf des jeweiligen Landes ebenfalls hoch sein muss.
 
 Daten
 Datenquelle
-Die Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung Quelle:  https://www.footprintnetwork.org/. Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN seit 1961 bis 2014 zu verfügung gestellt und sind als CSV-Datei frei verfügabar.
+Das Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung (  https://www.footprintnetwork.org/). Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN von 1961 bis 2014 zur verfügung gestellt und sind als CSV-Datei frei verfügabar.
 
 Datenerhebung
-Für das Projekt wurden die G20-Staaten berücksichtigt, diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestandt keine Herausforderung bei der Beschaffung der Daten, weil diese Freizugänglich sind. Die benötigten Daten wurden seperate heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen Biokapazität (die im Ökosystem vorhandene Ressourcen die wir benötigen, um unser Lebensstand aufrecht zuhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh und Fleisch verbrauch). Die Daten sind jeweils für 
-ein ganzes Land und für pro Einwohner eines Landes vorhanden.
+Für das Projekt wurden die G20-Staaten berücksichtigt. Diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestand keine Herausforderung bei der Beschaffung der Daten, weil diese frei zugänglich sind. Die benötigten Daten wurden seperat heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen: Biokapazität (die im Ökosystem vorhandene Ressourcen, die wir benötigen, um unser Lebensstand aufrecht zu erhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh- und Fleischverbrauch). Die Daten sind jeweils für ein ganzes Land und für Einwohner eines Landes vorhanden.
 
 Datenaufbereitung
-Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei, sind in eine Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma und Punktsetzungen wurden an das jeweilige Zielformate angepasst. Die separaten Daten für die einzelnen Länder wurden in eine Excel zusammengefügt für die erste Visualisierung in Tableau.
-
-Visualisierung
+Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei sind in einer Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma- und Punktsetzungen wurden an das jeweilige Zielformat angepasst. Die separaten Daten für die einzelnen Länder wurden für die erste Visualisierung in Tableau in eine Excel-Datei zusammengefügt.
 
 Prozess
-Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.
+Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen, ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.
 
-Treemap
-Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treempas benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt wird. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt wird. Für den optischen Vergleich unter den Werten der beiden Treemaps, wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke des oberen Treemaps mit den Rechtecken des unteren Treemaps optisch vergleichen. Dies wurde realisiert, indem das Treemap, das als Summe seiner dargestellten Werte, kleiner ist als das andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben den optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den Vergleichenden Werten eine Reserve oder ein Defizit besteht. In der ersten Ebene der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fusabdruck und Biokapazität abgebildet. Im oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als pro Kopf-Einheit dargestellt. Im unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durh ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (im oberen Treemap) und Biokapazität (im unteren Treemap) des jeweiligen Staates im Treemap darstellt. 
-Mit der Interaktion Technik „Mouseover“ wird das ausgewählte Land in alle Visualisierunge im Dashboard hervorgehoben.
+Prototypen
 
-Ökologischer Fußabdruck der G20-Staaten
+Visualisierung mit D3.js
 
-
-
-Ökologischer Fußabdruck pro Kopf G20-Staaten
-
-
-
-Säulendiagramm
-
-Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren, wurde getroffen da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst im Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm, das selbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt und analog dazu andersrum
-
-
-
-Linendiagramm
-Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der Zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei, den Farben aus den Treemaps (Fußabdruck=rot &amp;amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist ob eine Reserve oder ein Defizit besteht.
-
-Bilder
-
-Prototyp
-
-Implementierung
 Für die Implementierung des Prototyps haben wir uns für eine Webseite entschieden. Diese wurde mit den folgenden Technologien umgesetzt:
 
 
@@ -109,16 +111,284 @@ Für die Implementierung des Prototyps haben wir uns für eine Webseite entschie
   Bootstrap
 
 
-Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Für das Ausführen der Webseite wurde per Node.js ausgeführt.
-Hier evtl. Bild des D3.js-Gerüsts für die Treemap
-Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen- und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemap’s dargestellt wird. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.
+Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Das Ausführen der Webseite wurde mit Hilfe von Node.js durchgeführt.
+Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen Vergleich und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemaps dargestellt wurden. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.
 
-Vergleich der Framworks amcharts und D3.js
-Mit der Bibliothek amCharts lässt sich anhand eines Frameworks relativ schnell eine Drill-Down-Treemap erstellen. Anschließend muss die Demo-Version mit eigenen Daten versehen werden.
+Treemap
+Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treemaps benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt werden. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt werden. Für den optischen Vergleich unter den Werten der beiden Treemaps wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke der oberen Treemap mit den Rechtecken der unteren Treemap optisch vergleichen. Dies wurde realisiert, indem die Treemap, die als Summe seiner dargestellten Werte kleiner ist als die andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben dem optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den vergleichenden Werten eine Reserve oder ein Defizit besteht. In den ersten Ebenen der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fußabdruck und Biokapazität abgebildet. In der oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als Pro-Kopf-Einheit dargestellt. In der unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durch ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (in der oberen Treemap) und der Biokapazität (in der unteren Treemap) des jeweiligen Staates in der Treemap darstellt. 
+Mit der Interaktiontechnik „Mouseover“ wird das ausgewählte Land in alle Visualisierungen im Dashboard hervorgehoben.
+
+Ökologischer Fußabdruck der G20-Staaten
+
+
+
+Ökologischer Fußabdruck pro Kopf G20-Staaten
+
+
+
+Das folgende Code-Fragment beschreibt grob, wie eine Treemap in D3.js generiert wird.
+
+function makeBioChart(path, year){
+  document.getElementById(&quot;chart&quot;).insertBefore(bioSvg.node().parentNode, document.getElementById(&quot;mainCard&quot;));
+
+  d3.json(path, function (rawdata) {
+	.
+	.
+	.
+  }
+
+
+Nachfolgend findet per nest()-Methode eine Verschachtelung innerhalb der Treemap statt.
+    var data = d3.nest()
+      .key(function(d) { return d[&#39;year&#39;]})
+      .key(function(d) { return d[&#39;Country Name&#39;]})
+      .rollup(function(d) { return [
+        {name: &quot;Built-Up Land&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Built-up Land&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Carbon&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Carbon&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Cropland&quot;, count: parseFloat(( &quot;&quot; + d[0][&quot;Cropland&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Fishing Grounds&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Fishing Grounds&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Forest Products&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Forest Products&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Grazing Land&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Grazing Land&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+      ]
+      })
+      .entries(rawdata);
+    
+
+
+Säulendiagramm
+
+Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren wurde getroffen, da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das Abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst in Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard, auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm dasselbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt. Dies gilt analog auch im umgekehrten Sinne.
+
+
+
+Anbei kann man sehen, wie anhand der makeBarChart-Methode das Säulendiagramm aufgebaut ist.
+
+function makeBarChart(path, capitaDef, year){
+  document.getElementById(&quot;chart&quot;).insertBefore(barSvg.node().parentNode, document.getElementById(&quot;mainCard&quot;));
+
+  d3.json(&quot;./data/Defizit.json&quot;, function(error, rawdata) {
+    if (error) throw error;
+  
+    // format the data
+    var data = []
+    for(var i in rawdata){
+      if(rawdata[i].year == year){
+          data.push({name: rawdata[i][&quot;Country Name&quot;], value: rawdata[i][capitaDef]})
+          }
+      }
+  
+    data = data.sort(function(a, b){return parseFloat(b.value) - parseFloat(a.value)});
+.
+.
+.
+}
+
+
+Linendiagramm
+Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei den Farben aus den Treemaps (Fußabdruck=rot &amp;amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist, ob eine Reserve oder ein Defizit besteht.
+
+Visualisierung mit amChart
+Amcharts V4 ist die aktuellste Version von amChart. Diese Version unterstütz die Interaktionen zwischen den Charts. Mit Hilfe der Dokumentationen hat man ein Überblick über die Möglichkeiten, um die Charts zu bauen, verändern oder anzupassen. Auch die Demos und die Beispiele auf der Webseite von amChart waren sehr hilfreich um unser Dashboard zu bauen. Da Version 4 von amChart relativ neu und nicht so bekannt ist und sich deutlich von den vorherigen Versionen unterscheidet, haben wir uns dafür entschieden, die einzelnen Elemente der Webseite genauer per Code-Fragmente zu erläutern. Zudem werden die Charakteristika des Frameworks amChart untersucht und per Ampel-Prinzip bewertet.
+
+
+  Kostenlos solange man es nicht kommerziell verwendet
+  Design ist schön und dynamisch
+  TypeScript Unterstützung
+  Code ist verständlich
+  Dynamik braucht kein extra code
+  Dokumentation ist OK
+  Treemap hat wenige Methoden
+  Internet Community, weil die Version 4 sehr aktuell und noch unbekannt ist
+
+
+
+
+Library
+Das Dashboard wurde mit JavaScript geschrieben und basiert auf der JavaScript-Laufzeitumgebung NodeJS. Zusätzlich nutzten wir das Framework ExpressJS, um eine statische Website zu erstellen.
+Alle Daten waren in ein JSON-Objekt namens data.json gespeichert. Problematisch war es, dieses JSON-Objekt anzubinden bzw. zu filtern. Es war zeitaufwendig herauszufinden, wie man die data.json filtert, um diese an den Charts anzubinden, da die data.json sehr groß und komplex war.
+Die Library lodash bietet einige Hilfsfunktionen, um die data.json zu filtern. Es war am Ende mehr Filter-Code (260 Liniecode) als Dashboard-Code (180 Liniecode). Es wäre einfacher, für jedes Chart eine separate JSON-Datei mit den jeweiligen Daten zu haben.
+
+container
+Es empfehlt sich ein amChart-Container zu erstellen, um alle Charts zu erstellen und eine Dashboard-Sicht zu generieren, damit eine bessere Übersicht für die Interaktion zwischen den Charts dargestellt werden kann. Änderungen in HTML oder CSS, um das Dashboard anzupassen bzw. zu ändern, sind nicht mehr notwendig. 
+Die Treemaps sind unterschiedlich groß, weil diese sich an den Zahlen sich orientieren. Je größer die Zahlen, desto größer die Treemap.
+
+var container = am4core.create(&quot;chartdiv&quot;, am4core.Container); 
+container.width = am4core.percent(100);
+container.height = am4core.percent(100);
+
+
+Treemap
+Wir haben zuerst zwei Treemaps erstellt, wie auf der amchart-Webseite vorgeschrieben, und diese an den Container positioniert.
+
+Biocapacity Treemap (treemapGreen)
+In dieser Treemap haben wir einen sogenannten Simple-Treemap erstellt, um die Biokapazität und den Key zu definieren, um diese später an das data.json zu verknüpfen.
+
+var treemapGreen = container.createChild(am4charts.TreeMap);
+    treemapGreen.hiddenState.properties.opacity = 0;
+    treemapGreen.align = &quot;right&quot;;
+    treemapGreen.minGridDistance = 100;
+    treemapGreen.width = am4core.percent(50);
+    treemapGreen.height = am4core.percent(50);
+    // keys
+    treemapGreen.homeText = &quot;Biocapacity&quot;;
+    treemapGreen.dataFields.color = &quot;color&quot;;
+    treemapGreen.dataFields.value = &quot;value&quot;;
+    treemapGreen.dataFields.name = &quot;name&quot;;
+
+
+
+Ecological Footprint Treemap (treemapRed)
+Hier würde eine Drill-Down-Treemap erstellt. Damit kann man auf ein Land klicken, um die dazugehörigen Children-Daten anzugzeigen. Die Children-Daten stellen hier die spezifischen Daten eines Landes dar. Beim Klicken auf ein Land werden die spezifischen Daten dargestellt.
+
+var treemapRed = container.createChild(am4charts.TreeMap);
+    treemapRed.hiddenState.properties.opacity = 0;
+    treemapRed.width = am4core.percent(50);
+    treemapRed.height = am4core.percent(50);
+    treemapRed.align = &quot;left&quot;;
+    treemapRed.padding(0, 0, 0, 0);
+    treemapRed.data = processData(data);
+    treemapRed.maxLevels = 1;
+    treemapRed.dataFields.value = &quot;value&quot;;
+    treemapRed.dataFields.name = &quot;name&quot;;
+    treemapRed.dataFields.color = &quot;color&quot;;
+    //Children Data
+    treemapRed.dataFields.children = &quot;children&quot;;
+    treemapRed.homeText = &quot;Ecological Footprint&quot;;
+
+
+
+
+Treemap Text
+Dieser Code ist für die Treemaps, um die einzelnen Ebenen mit Text und Mausverhalten darzustellen.
+Bsp. 
+Erste  ebene  = var level0SeriesTemplate
+Zweite ebene  = var level1SeriesTemplate
+
+treemap.navigationBar = new am4charts.NavigationBar();
+
+    var level0SeriesTemplate = treemap.seriesTemplates.create(&quot;0&quot;);
+    level0SeriesTemplate.strokeWidth = 2;
+    var bullet0 = level0SeriesTemplate.bullets.push(
+        new am4charts.LabelBullet()
+    );
+    bullet0.locationX = 0.5;
+    bullet0.locationY = 0.5;
+    bullet0.label.text = &quot;{name}&quot;;
+    bullet0.label.fill = am4core.color(&quot;#ffffff&quot;);
+
+Treemap hover methoden
+Dieser Code ist für den Schwebeeffekt über die Treemaps zuständig. Hier war es aus zeitlichen Gründen nicht möglich, dass sich das Verhalten bei beiden Treemaps gleich ist. Geplant war, dass wenn man auf der Treemap auf ein Land mit den Mauszeiger druber schwebt, dass das jeweilige Land auf der anderen Treemap gleichesmaßen hervorgeboen wird.
+    // ein hover erstellen
+    var hoverState = level0SeriesTemplate.columns.template.states.create(&quot;hover&quot;);
+    // beim drauf havern dimmen
+    hoverState.adapter.add(&quot;fill&quot;, (fill, target) =&amp;gt; {
+        return am4core.color(am4core.colors.brighten(fill.rgb, -0.2));
+    });
+
+XYChart
+Dieser Chart ist etwas übersichtlicher als das Treemap und ist besser dokumentiert.
+    var chart = container.createChild(am4charts.XYChart);
+    chart.height = am4core.percent(50);
+    chart.valign = &quot;bottom&quot;;
+    chart.hiddenState.properties.opacity = 0;
+
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.tooltip.disabled = true;
+
+series
+Hier wird das Verlauf der Zeitlinie erstellt.
+
+Biocapacity linie
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = &quot;date&quot;;
+    series.dataFields.valueY = &quot;Bio&quot;;
+
+
+Ecological linie
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = &quot;date&quot;;
+    series.dataFields.valueY = &quot;Eco&quot;;
+
+
+
+Darstellung und Feature anpassung.
+//farbfläche und die anzeige info gesetzt
+    series.fill = am4core.color(&quot;#DC143C&quot;);
+    series.fillOpacity = 0.3;
+    series.sequencedInterpolation = true;
+    series.defaultState.transitionDuration = 1500;
+    series.stroke = &quot;#228B22&quot;;
+    series.tensionX = 0.8;
+
+// info text setzten
+    series.tooltipText = &quot;Bio: {valueY.value}&quot;;
+
+// farbe 
+    series.fill = am4core.color(&quot;#228B22&quot;);
+    series.fillOpacity = 0.3;
+
+// maus Curser und zoom auswahl
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.xAxis = dateAxis;
+    chart.scrollbarX = new am4core.Scrollbar();
+
+
+
+
+Legende
+Die Legende funktioniert nur bei Simple-Treemap und XYChart. Bei der Drill-Down Treemap kam es zu einigen UI-Fehlern. Es wurde nur in dem XYChart verwendet, da es in der Treemap nicht notwendig ist.
+//zeige legende
+chart.legend = new am4charts.Legend();
+chart.legend.useDefaultMarker = true;
+
+// form der legende
+var marker = chart.legend.markers.template.children.getIndex(0);
+    marker.cornerRadius(12, 12, 12, 12);
+    marker.strokeWidth = 2;
+    marker.strokeOpacity = 1;
+    marker.stroke = am4core.color(&quot;#ccc&quot;);
+
+Ein schöner Effekt bei Legenden, dass man es auch als Filter benutzen kann.
+
+
+Events
+Wir haben leider sehr wenige interaktive Funktionen für unseren Treemaps gefunden. In Chrome-Debugger haben wir eine Methode gefunden, die den Namen des Zustandes liefert, welche momentan anzeigt wird.
+
+treemapRed.currentlyZoomed.name
+
+
+Nach einer sehr langen Suche in der amchart-Doku und Testen im Chrome-Debugger sind wir auf diese Funktion als Lösung für die Interaktionen gekommen.
+Wir verwenden treemapRed als Navigation Chart.
+//event methode für treemapRed mausklick
+treemapRed.events.on(&quot;hit&quot;, function (ev) {
+// zeigt name wo die Drilldown Treemap sich befindet
+treemapRed.currentlyZoomed.name
+}, this);
+
+Interaction
+Wichtig zu erwähnen ist es hier, dass zuerst die Charts erstellt und mit Daten geladen werden müssen, um eine Startseite anzuzeigen. Ansonsten startet man eine leere Seite und man kann auf nichts klicken. Hier wird mit allen Daten der G20-Ländern gestartet.
+
+
+
+In der Interaktion stößt man auf das Problem, dass die Klicks entweder zu spät oder zu früh reagieren. Wir haben die setTimeout()-Methode verwendet, um das Klickverhalten zu verbessern, weil die dynamische Visualisierung Zeit braucht. Der Name des aktuellen Zustands wird an die Methode für die Daten-Filterung übergeben.
+
+treemapRed.events.on(&quot;hit&quot;, function (ev) {
+  setTimeout(() =&amp;gt; {
+    // zeigt die G20 länder oder ein land verlaufs daten
+    axisChart.data = processTime(data, treemapRed.currentlyZoomed.name);
+    // zeigt spätzlefische länder daten oder zeigt die länder sicht
+    treemapGreen.data = processBio(data, treemapRed.currentlyZoomed.name);
+  }, 500);
+}, this);
+
+
+Vergleich der Framworks amCharts und D3.js
+Beim Arbeiten mit den beiden Frameworks fiel uns auf, dass sich mit amCharts deutlich leichter unterschiedliche Charts erstellen lassen. Zwar ist die Auswahl an Charts in amChart deutlich bschränkter als in D3.js, für unsere Zwecke hätte es allerdings gereicht. Allerdings war es uns nicht möglich, unsere Vorstellungen bzgl. der Interaktion der Treemaps, wie z.B. komplexeres Hovern einzelner Elemente, umzusetzen. Zudem gestaltete es sich als schwierig, die proportionalen Unterschiede zwischen den Treemaps deutlicher darzustellen. Dieses Problem hatten wir mit D3.js nicht. Allgemein lässt sich festhalten, dass mit D3.js deutlich besser Visualisierungen umsetzen lassen, jedoch bedarf es einiges an Einarbeitungszeit sich mit dem Framework vertraut zu machen.
 
 Erkenntnisse
 Unsere anfangs aufgestellte Hypothese, dass es erhebliche Unterschiede zwischen der absoluten- und der Pro-Kopf-Ansicht gibt, konnte bestätigt werden. 
-Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Länder aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
+Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Staaten aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
 Bei der Biokapazität ergibt sich ebenfalls ein neues Bild. Bei Ansicht der absoluten Werte führt Brasilien vor China. Da Brasilien aber mit seinen knapp 210 Millionen Einwohnern ein sehr bevölkerungsreiches Land ist, liegt es in der Pro-Kopf-Ansicht lediglich auf dem dritten Platz. Hier führt Kanada, gefolgt von Australien auf einem zweiten Rang. Des Weiteren lässt sich außerdem festhalten, dass China als vermeintlich größter Umweltverschmutzer bei der Pro Kopf-Ansicht zwar immer noch eine negative Bilanz aufweist, allerdings weisen fünf G20-Länder eine deutlich schlechtere Bilanz auf.
 
 Fazit
@@ -136,7 +406,7 @@ Ferner stellte sich das Arbeiten mit dem zuvor gewählten Framework als problema
 	<!-- Facebook Open Graph -->
 	<meta property="og:title" content=" Der Ökologischer Fußabdruck der G20-Staaten | Sustainable Development Goals | Hochschule Mannheim ">
 	<meta property="og:description" content="Abstract
-Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Diesen Verbrauch den wir erzeugen, wird als den ökologischen Fußabdruck dargestellt. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.
+Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Dieser Verbrauch wird auch als ökologischer Fußabdruck bezeichnet. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.
 
 Inhalt
 
@@ -149,69 +419,71 @@ Inhalt
       Datenaufbereitung
     
   
-  Visualisierung
+  Prozess
+  Prototypen
     
-      Prozess
-      Treemap
-      Säulendiagramm
-      Linendiagramm
+      Visualisierung mit D3.js
+        
+          Treemap
+          Säulendiagramm
+          Linendiagramm
+          Linendiagramm
+        
+      
+      Visualisierung mit amChart
+        
+          Library
+          container
+          Treemap
+            
+              Biokapazität Treemap
+              Ökologischer Fußabdruck
+              Treemap Text
+              Treemap hover methoden
+            
+          
+          XYChart
+            
+              series
+              Legende
+            
+          
+          Events
+          Interaction
+        
+      
     
   
-  Prototyp/Ergebnisse
-  Implementierung
+  Vergleich der Framworks amCharts und D3.js
+  Erkenntnisse
   Fazit
 
 
 Einführung
 In diesem Semester wurden als Thema die Sustainable Development Goals der UN behandelt. 
 Diese beinhalten 17 Ziele zur nachhaltigen Entwicklung, die von den Vereinten Nationen erreicht werden sollen. 
-Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wird, findet ein Visualisierungsprojekt statt. In diesem Projekt konzentrieren wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltet. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem Positiven Wert eine Reserve und bei einem negativen Wert einen Defizit.
+Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wurde, fand ein Visualisierungsprojekt statt. In diesem Projekt konzentrierten wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltete. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem positiven Wert eine Reserve und bei einem negativen Wert ein Defizit.
 
 These
 Ein hoher ökologischer Fußabdruck eines Landes besagt nicht, dass der ökologische Fußabdruck pro Kopf des jeweiligen Landes ebenfalls hoch sein muss.
 
 Daten
 Datenquelle
-Die Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung Quelle:  https://www.footprintnetwork.org/. Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN seit 1961 bis 2014 zu verfügung gestellt und sind als CSV-Datei frei verfügabar.
+Das Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung (  https://www.footprintnetwork.org/). Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN von 1961 bis 2014 zur verfügung gestellt und sind als CSV-Datei frei verfügabar.
 
 Datenerhebung
-Für das Projekt wurden die G20-Staaten berücksichtigt, diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestandt keine Herausforderung bei der Beschaffung der Daten, weil diese Freizugänglich sind. Die benötigten Daten wurden seperate heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen Biokapazität (die im Ökosystem vorhandene Ressourcen die wir benötigen, um unser Lebensstand aufrecht zuhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh und Fleisch verbrauch). Die Daten sind jeweils für 
-ein ganzes Land und für pro Einwohner eines Landes vorhanden.
+Für das Projekt wurden die G20-Staaten berücksichtigt. Diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestand keine Herausforderung bei der Beschaffung der Daten, weil diese frei zugänglich sind. Die benötigten Daten wurden seperat heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen: Biokapazität (die im Ökosystem vorhandene Ressourcen, die wir benötigen, um unser Lebensstand aufrecht zu erhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh- und Fleischverbrauch). Die Daten sind jeweils für ein ganzes Land und für Einwohner eines Landes vorhanden.
 
 Datenaufbereitung
-Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei, sind in eine Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma und Punktsetzungen wurden an das jeweilige Zielformate angepasst. Die separaten Daten für die einzelnen Länder wurden in eine Excel zusammengefügt für die erste Visualisierung in Tableau.
-
-Visualisierung
+Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei sind in einer Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma- und Punktsetzungen wurden an das jeweilige Zielformat angepasst. Die separaten Daten für die einzelnen Länder wurden für die erste Visualisierung in Tableau in eine Excel-Datei zusammengefügt.
 
 Prozess
-Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.
+Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen, ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.
 
-Treemap
-Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treempas benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt wird. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt wird. Für den optischen Vergleich unter den Werten der beiden Treemaps, wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke des oberen Treemaps mit den Rechtecken des unteren Treemaps optisch vergleichen. Dies wurde realisiert, indem das Treemap, das als Summe seiner dargestellten Werte, kleiner ist als das andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben den optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den Vergleichenden Werten eine Reserve oder ein Defizit besteht. In der ersten Ebene der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fusabdruck und Biokapazität abgebildet. Im oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als pro Kopf-Einheit dargestellt. Im unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durh ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (im oberen Treemap) und Biokapazität (im unteren Treemap) des jeweiligen Staates im Treemap darstellt. 
-Mit der Interaktion Technik „Mouseover“ wird das ausgewählte Land in alle Visualisierunge im Dashboard hervorgehoben.
+Prototypen
 
-Ökologischer Fußabdruck der G20-Staaten
+Visualisierung mit D3.js
 
-
-
-Ökologischer Fußabdruck pro Kopf G20-Staaten
-
-
-
-Säulendiagramm
-
-Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren, wurde getroffen da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst im Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm, das selbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt und analog dazu andersrum
-
-
-
-Linendiagramm
-Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der Zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei, den Farben aus den Treemaps (Fußabdruck=rot &amp;amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist ob eine Reserve oder ein Defizit besteht.
-
-Bilder
-
-Prototyp
-
-Implementierung
 Für die Implementierung des Prototyps haben wir uns für eine Webseite entschieden. Diese wurde mit den folgenden Technologien umgesetzt:
 
 
@@ -221,16 +493,284 @@ Für die Implementierung des Prototyps haben wir uns für eine Webseite entschie
   Bootstrap
 
 
-Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Für das Ausführen der Webseite wurde per Node.js ausgeführt.
-Hier evtl. Bild des D3.js-Gerüsts für die Treemap
-Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen- und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemap’s dargestellt wird. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.
+Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Das Ausführen der Webseite wurde mit Hilfe von Node.js durchgeführt.
+Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen Vergleich und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemaps dargestellt wurden. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.
 
-Vergleich der Framworks amcharts und D3.js
-Mit der Bibliothek amCharts lässt sich anhand eines Frameworks relativ schnell eine Drill-Down-Treemap erstellen. Anschließend muss die Demo-Version mit eigenen Daten versehen werden.
+Treemap
+Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treemaps benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt werden. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt werden. Für den optischen Vergleich unter den Werten der beiden Treemaps wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke der oberen Treemap mit den Rechtecken der unteren Treemap optisch vergleichen. Dies wurde realisiert, indem die Treemap, die als Summe seiner dargestellten Werte kleiner ist als die andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben dem optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den vergleichenden Werten eine Reserve oder ein Defizit besteht. In den ersten Ebenen der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fußabdruck und Biokapazität abgebildet. In der oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als Pro-Kopf-Einheit dargestellt. In der unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durch ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (in der oberen Treemap) und der Biokapazität (in der unteren Treemap) des jeweiligen Staates in der Treemap darstellt. 
+Mit der Interaktiontechnik „Mouseover“ wird das ausgewählte Land in alle Visualisierungen im Dashboard hervorgehoben.
+
+Ökologischer Fußabdruck der G20-Staaten
+
+
+
+Ökologischer Fußabdruck pro Kopf G20-Staaten
+
+
+
+Das folgende Code-Fragment beschreibt grob, wie eine Treemap in D3.js generiert wird.
+
+function makeBioChart(path, year){
+  document.getElementById(&quot;chart&quot;).insertBefore(bioSvg.node().parentNode, document.getElementById(&quot;mainCard&quot;));
+
+  d3.json(path, function (rawdata) {
+	.
+	.
+	.
+  }
+
+
+Nachfolgend findet per nest()-Methode eine Verschachtelung innerhalb der Treemap statt.
+    var data = d3.nest()
+      .key(function(d) { return d[&#39;year&#39;]})
+      .key(function(d) { return d[&#39;Country Name&#39;]})
+      .rollup(function(d) { return [
+        {name: &quot;Built-Up Land&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Built-up Land&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Carbon&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Carbon&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Cropland&quot;, count: parseFloat(( &quot;&quot; + d[0][&quot;Cropland&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Fishing Grounds&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Fishing Grounds&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Forest Products&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Forest Products&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Grazing Land&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Grazing Land&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+      ]
+      })
+      .entries(rawdata);
+    
+
+
+Säulendiagramm
+
+Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren wurde getroffen, da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das Abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst in Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard, auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm dasselbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt. Dies gilt analog auch im umgekehrten Sinne.
+
+
+
+Anbei kann man sehen, wie anhand der makeBarChart-Methode das Säulendiagramm aufgebaut ist.
+
+function makeBarChart(path, capitaDef, year){
+  document.getElementById(&quot;chart&quot;).insertBefore(barSvg.node().parentNode, document.getElementById(&quot;mainCard&quot;));
+
+  d3.json(&quot;./data/Defizit.json&quot;, function(error, rawdata) {
+    if (error) throw error;
+  
+    // format the data
+    var data = []
+    for(var i in rawdata){
+      if(rawdata[i].year == year){
+          data.push({name: rawdata[i][&quot;Country Name&quot;], value: rawdata[i][capitaDef]})
+          }
+      }
+  
+    data = data.sort(function(a, b){return parseFloat(b.value) - parseFloat(a.value)});
+.
+.
+.
+}
+
+
+Linendiagramm
+Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei den Farben aus den Treemaps (Fußabdruck=rot &amp;amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist, ob eine Reserve oder ein Defizit besteht.
+
+Visualisierung mit amChart
+Amcharts V4 ist die aktuellste Version von amChart. Diese Version unterstütz die Interaktionen zwischen den Charts. Mit Hilfe der Dokumentationen hat man ein Überblick über die Möglichkeiten, um die Charts zu bauen, verändern oder anzupassen. Auch die Demos und die Beispiele auf der Webseite von amChart waren sehr hilfreich um unser Dashboard zu bauen. Da Version 4 von amChart relativ neu und nicht so bekannt ist und sich deutlich von den vorherigen Versionen unterscheidet, haben wir uns dafür entschieden, die einzelnen Elemente der Webseite genauer per Code-Fragmente zu erläutern. Zudem werden die Charakteristika des Frameworks amChart untersucht und per Ampel-Prinzip bewertet.
+
+
+  Kostenlos solange man es nicht kommerziell verwendet
+  Design ist schön und dynamisch
+  TypeScript Unterstützung
+  Code ist verständlich
+  Dynamik braucht kein extra code
+  Dokumentation ist OK
+  Treemap hat wenige Methoden
+  Internet Community, weil die Version 4 sehr aktuell und noch unbekannt ist
+
+
+
+
+Library
+Das Dashboard wurde mit JavaScript geschrieben und basiert auf der JavaScript-Laufzeitumgebung NodeJS. Zusätzlich nutzten wir das Framework ExpressJS, um eine statische Website zu erstellen.
+Alle Daten waren in ein JSON-Objekt namens data.json gespeichert. Problematisch war es, dieses JSON-Objekt anzubinden bzw. zu filtern. Es war zeitaufwendig herauszufinden, wie man die data.json filtert, um diese an den Charts anzubinden, da die data.json sehr groß und komplex war.
+Die Library lodash bietet einige Hilfsfunktionen, um die data.json zu filtern. Es war am Ende mehr Filter-Code (260 Liniecode) als Dashboard-Code (180 Liniecode). Es wäre einfacher, für jedes Chart eine separate JSON-Datei mit den jeweiligen Daten zu haben.
+
+container
+Es empfehlt sich ein amChart-Container zu erstellen, um alle Charts zu erstellen und eine Dashboard-Sicht zu generieren, damit eine bessere Übersicht für die Interaktion zwischen den Charts dargestellt werden kann. Änderungen in HTML oder CSS, um das Dashboard anzupassen bzw. zu ändern, sind nicht mehr notwendig. 
+Die Treemaps sind unterschiedlich groß, weil diese sich an den Zahlen sich orientieren. Je größer die Zahlen, desto größer die Treemap.
+
+var container = am4core.create(&quot;chartdiv&quot;, am4core.Container); 
+container.width = am4core.percent(100);
+container.height = am4core.percent(100);
+
+
+Treemap
+Wir haben zuerst zwei Treemaps erstellt, wie auf der amchart-Webseite vorgeschrieben, und diese an den Container positioniert.
+
+Biocapacity Treemap (treemapGreen)
+In dieser Treemap haben wir einen sogenannten Simple-Treemap erstellt, um die Biokapazität und den Key zu definieren, um diese später an das data.json zu verknüpfen.
+
+var treemapGreen = container.createChild(am4charts.TreeMap);
+    treemapGreen.hiddenState.properties.opacity = 0;
+    treemapGreen.align = &quot;right&quot;;
+    treemapGreen.minGridDistance = 100;
+    treemapGreen.width = am4core.percent(50);
+    treemapGreen.height = am4core.percent(50);
+    // keys
+    treemapGreen.homeText = &quot;Biocapacity&quot;;
+    treemapGreen.dataFields.color = &quot;color&quot;;
+    treemapGreen.dataFields.value = &quot;value&quot;;
+    treemapGreen.dataFields.name = &quot;name&quot;;
+
+
+
+Ecological Footprint Treemap (treemapRed)
+Hier würde eine Drill-Down-Treemap erstellt. Damit kann man auf ein Land klicken, um die dazugehörigen Children-Daten anzugzeigen. Die Children-Daten stellen hier die spezifischen Daten eines Landes dar. Beim Klicken auf ein Land werden die spezifischen Daten dargestellt.
+
+var treemapRed = container.createChild(am4charts.TreeMap);
+    treemapRed.hiddenState.properties.opacity = 0;
+    treemapRed.width = am4core.percent(50);
+    treemapRed.height = am4core.percent(50);
+    treemapRed.align = &quot;left&quot;;
+    treemapRed.padding(0, 0, 0, 0);
+    treemapRed.data = processData(data);
+    treemapRed.maxLevels = 1;
+    treemapRed.dataFields.value = &quot;value&quot;;
+    treemapRed.dataFields.name = &quot;name&quot;;
+    treemapRed.dataFields.color = &quot;color&quot;;
+    //Children Data
+    treemapRed.dataFields.children = &quot;children&quot;;
+    treemapRed.homeText = &quot;Ecological Footprint&quot;;
+
+
+
+
+Treemap Text
+Dieser Code ist für die Treemaps, um die einzelnen Ebenen mit Text und Mausverhalten darzustellen.
+Bsp. 
+Erste  ebene  = var level0SeriesTemplate
+Zweite ebene  = var level1SeriesTemplate
+
+treemap.navigationBar = new am4charts.NavigationBar();
+
+    var level0SeriesTemplate = treemap.seriesTemplates.create(&quot;0&quot;);
+    level0SeriesTemplate.strokeWidth = 2;
+    var bullet0 = level0SeriesTemplate.bullets.push(
+        new am4charts.LabelBullet()
+    );
+    bullet0.locationX = 0.5;
+    bullet0.locationY = 0.5;
+    bullet0.label.text = &quot;{name}&quot;;
+    bullet0.label.fill = am4core.color(&quot;#ffffff&quot;);
+
+Treemap hover methoden
+Dieser Code ist für den Schwebeeffekt über die Treemaps zuständig. Hier war es aus zeitlichen Gründen nicht möglich, dass sich das Verhalten bei beiden Treemaps gleich ist. Geplant war, dass wenn man auf der Treemap auf ein Land mit den Mauszeiger druber schwebt, dass das jeweilige Land auf der anderen Treemap gleichesmaßen hervorgeboen wird.
+    // ein hover erstellen
+    var hoverState = level0SeriesTemplate.columns.template.states.create(&quot;hover&quot;);
+    // beim drauf havern dimmen
+    hoverState.adapter.add(&quot;fill&quot;, (fill, target) =&amp;gt; {
+        return am4core.color(am4core.colors.brighten(fill.rgb, -0.2));
+    });
+
+XYChart
+Dieser Chart ist etwas übersichtlicher als das Treemap und ist besser dokumentiert.
+    var chart = container.createChild(am4charts.XYChart);
+    chart.height = am4core.percent(50);
+    chart.valign = &quot;bottom&quot;;
+    chart.hiddenState.properties.opacity = 0;
+
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.tooltip.disabled = true;
+
+series
+Hier wird das Verlauf der Zeitlinie erstellt.
+
+Biocapacity linie
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = &quot;date&quot;;
+    series.dataFields.valueY = &quot;Bio&quot;;
+
+
+Ecological linie
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = &quot;date&quot;;
+    series.dataFields.valueY = &quot;Eco&quot;;
+
+
+
+Darstellung und Feature anpassung.
+//farbfläche und die anzeige info gesetzt
+    series.fill = am4core.color(&quot;#DC143C&quot;);
+    series.fillOpacity = 0.3;
+    series.sequencedInterpolation = true;
+    series.defaultState.transitionDuration = 1500;
+    series.stroke = &quot;#228B22&quot;;
+    series.tensionX = 0.8;
+
+// info text setzten
+    series.tooltipText = &quot;Bio: {valueY.value}&quot;;
+
+// farbe 
+    series.fill = am4core.color(&quot;#228B22&quot;);
+    series.fillOpacity = 0.3;
+
+// maus Curser und zoom auswahl
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.xAxis = dateAxis;
+    chart.scrollbarX = new am4core.Scrollbar();
+
+
+
+
+Legende
+Die Legende funktioniert nur bei Simple-Treemap und XYChart. Bei der Drill-Down Treemap kam es zu einigen UI-Fehlern. Es wurde nur in dem XYChart verwendet, da es in der Treemap nicht notwendig ist.
+//zeige legende
+chart.legend = new am4charts.Legend();
+chart.legend.useDefaultMarker = true;
+
+// form der legende
+var marker = chart.legend.markers.template.children.getIndex(0);
+    marker.cornerRadius(12, 12, 12, 12);
+    marker.strokeWidth = 2;
+    marker.strokeOpacity = 1;
+    marker.stroke = am4core.color(&quot;#ccc&quot;);
+
+Ein schöner Effekt bei Legenden, dass man es auch als Filter benutzen kann.
+
+
+Events
+Wir haben leider sehr wenige interaktive Funktionen für unseren Treemaps gefunden. In Chrome-Debugger haben wir eine Methode gefunden, die den Namen des Zustandes liefert, welche momentan anzeigt wird.
+
+treemapRed.currentlyZoomed.name
+
+
+Nach einer sehr langen Suche in der amchart-Doku und Testen im Chrome-Debugger sind wir auf diese Funktion als Lösung für die Interaktionen gekommen.
+Wir verwenden treemapRed als Navigation Chart.
+//event methode für treemapRed mausklick
+treemapRed.events.on(&quot;hit&quot;, function (ev) {
+// zeigt name wo die Drilldown Treemap sich befindet
+treemapRed.currentlyZoomed.name
+}, this);
+
+Interaction
+Wichtig zu erwähnen ist es hier, dass zuerst die Charts erstellt und mit Daten geladen werden müssen, um eine Startseite anzuzeigen. Ansonsten startet man eine leere Seite und man kann auf nichts klicken. Hier wird mit allen Daten der G20-Ländern gestartet.
+
+
+
+In der Interaktion stößt man auf das Problem, dass die Klicks entweder zu spät oder zu früh reagieren. Wir haben die setTimeout()-Methode verwendet, um das Klickverhalten zu verbessern, weil die dynamische Visualisierung Zeit braucht. Der Name des aktuellen Zustands wird an die Methode für die Daten-Filterung übergeben.
+
+treemapRed.events.on(&quot;hit&quot;, function (ev) {
+  setTimeout(() =&amp;gt; {
+    // zeigt die G20 länder oder ein land verlaufs daten
+    axisChart.data = processTime(data, treemapRed.currentlyZoomed.name);
+    // zeigt spätzlefische länder daten oder zeigt die länder sicht
+    treemapGreen.data = processBio(data, treemapRed.currentlyZoomed.name);
+  }, 500);
+}, this);
+
+
+Vergleich der Framworks amCharts und D3.js
+Beim Arbeiten mit den beiden Frameworks fiel uns auf, dass sich mit amCharts deutlich leichter unterschiedliche Charts erstellen lassen. Zwar ist die Auswahl an Charts in amChart deutlich bschränkter als in D3.js, für unsere Zwecke hätte es allerdings gereicht. Allerdings war es uns nicht möglich, unsere Vorstellungen bzgl. der Interaktion der Treemaps, wie z.B. komplexeres Hovern einzelner Elemente, umzusetzen. Zudem gestaltete es sich als schwierig, die proportionalen Unterschiede zwischen den Treemaps deutlicher darzustellen. Dieses Problem hatten wir mit D3.js nicht. Allgemein lässt sich festhalten, dass mit D3.js deutlich besser Visualisierungen umsetzen lassen, jedoch bedarf es einiges an Einarbeitungszeit sich mit dem Framework vertraut zu machen.
 
 Erkenntnisse
 Unsere anfangs aufgestellte Hypothese, dass es erhebliche Unterschiede zwischen der absoluten- und der Pro-Kopf-Ansicht gibt, konnte bestätigt werden. 
-Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Länder aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
+Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Staaten aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
 Bei der Biokapazität ergibt sich ebenfalls ein neues Bild. Bei Ansicht der absoluten Werte führt Brasilien vor China. Da Brasilien aber mit seinen knapp 210 Millionen Einwohnern ein sehr bevölkerungsreiches Land ist, liegt es in der Pro-Kopf-Ansicht lediglich auf dem dritten Platz. Hier führt Kanada, gefolgt von Australien auf einem zweiten Rang. Des Weiteren lässt sich außerdem festhalten, dass China als vermeintlich größter Umweltverschmutzer bei der Pro Kopf-Ansicht zwar immer noch eine negative Bilanz aufweist, allerdings weisen fünf G20-Länder eine deutlich schlechtere Bilanz auf.
 
 Fazit
@@ -253,7 +793,7 @@ Ferner stellte sich das Arbeiten mit dem zuvor gewählten Framework als problema
 	<meta name="twitter:creator" content="tillnm">
 	<meta name="twitter:title" content=" Der Ökologischer Fußabdruck der G20-Staaten | Sustainable Development Goals | Hochschule Mannheim ">
 	<meta name="twitter:description" content="Abstract
-Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Diesen Verbrauch den wir erzeugen, wird als den ökologischen Fußabdruck dargestellt. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.
+Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Dieser Verbrauch wird auch als ökologischer Fußabdruck bezeichnet. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.
 
 Inhalt
 
@@ -266,69 +806,71 @@ Inhalt
       Datenaufbereitung
     
   
-  Visualisierung
+  Prozess
+  Prototypen
     
-      Prozess
-      Treemap
-      Säulendiagramm
-      Linendiagramm
+      Visualisierung mit D3.js
+        
+          Treemap
+          Säulendiagramm
+          Linendiagramm
+          Linendiagramm
+        
+      
+      Visualisierung mit amChart
+        
+          Library
+          container
+          Treemap
+            
+              Biokapazität Treemap
+              Ökologischer Fußabdruck
+              Treemap Text
+              Treemap hover methoden
+            
+          
+          XYChart
+            
+              series
+              Legende
+            
+          
+          Events
+          Interaction
+        
+      
     
   
-  Prototyp/Ergebnisse
-  Implementierung
+  Vergleich der Framworks amCharts und D3.js
+  Erkenntnisse
   Fazit
 
 
 Einführung
 In diesem Semester wurden als Thema die Sustainable Development Goals der UN behandelt. 
 Diese beinhalten 17 Ziele zur nachhaltigen Entwicklung, die von den Vereinten Nationen erreicht werden sollen. 
-Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wird, findet ein Visualisierungsprojekt statt. In diesem Projekt konzentrieren wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltet. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem Positiven Wert eine Reserve und bei einem negativen Wert einen Defizit.
+Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wurde, fand ein Visualisierungsprojekt statt. In diesem Projekt konzentrierten wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltete. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem positiven Wert eine Reserve und bei einem negativen Wert ein Defizit.
 
 These
 Ein hoher ökologischer Fußabdruck eines Landes besagt nicht, dass der ökologische Fußabdruck pro Kopf des jeweiligen Landes ebenfalls hoch sein muss.
 
 Daten
 Datenquelle
-Die Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung Quelle:  https://www.footprintnetwork.org/. Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN seit 1961 bis 2014 zu verfügung gestellt und sind als CSV-Datei frei verfügabar.
+Das Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung (  https://www.footprintnetwork.org/). Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN von 1961 bis 2014 zur verfügung gestellt und sind als CSV-Datei frei verfügabar.
 
 Datenerhebung
-Für das Projekt wurden die G20-Staaten berücksichtigt, diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestandt keine Herausforderung bei der Beschaffung der Daten, weil diese Freizugänglich sind. Die benötigten Daten wurden seperate heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen Biokapazität (die im Ökosystem vorhandene Ressourcen die wir benötigen, um unser Lebensstand aufrecht zuhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh und Fleisch verbrauch). Die Daten sind jeweils für 
-ein ganzes Land und für pro Einwohner eines Landes vorhanden.
+Für das Projekt wurden die G20-Staaten berücksichtigt. Diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestand keine Herausforderung bei der Beschaffung der Daten, weil diese frei zugänglich sind. Die benötigten Daten wurden seperat heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen: Biokapazität (die im Ökosystem vorhandene Ressourcen, die wir benötigen, um unser Lebensstand aufrecht zu erhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh- und Fleischverbrauch). Die Daten sind jeweils für ein ganzes Land und für Einwohner eines Landes vorhanden.
 
 Datenaufbereitung
-Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei, sind in eine Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma und Punktsetzungen wurden an das jeweilige Zielformate angepasst. Die separaten Daten für die einzelnen Länder wurden in eine Excel zusammengefügt für die erste Visualisierung in Tableau.
-
-Visualisierung
+Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei sind in einer Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma- und Punktsetzungen wurden an das jeweilige Zielformat angepasst. Die separaten Daten für die einzelnen Länder wurden für die erste Visualisierung in Tableau in eine Excel-Datei zusammengefügt.
 
 Prozess
-Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.
+Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen, ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.
 
-Treemap
-Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treempas benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt wird. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt wird. Für den optischen Vergleich unter den Werten der beiden Treemaps, wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke des oberen Treemaps mit den Rechtecken des unteren Treemaps optisch vergleichen. Dies wurde realisiert, indem das Treemap, das als Summe seiner dargestellten Werte, kleiner ist als das andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben den optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den Vergleichenden Werten eine Reserve oder ein Defizit besteht. In der ersten Ebene der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fusabdruck und Biokapazität abgebildet. Im oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als pro Kopf-Einheit dargestellt. Im unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durh ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (im oberen Treemap) und Biokapazität (im unteren Treemap) des jeweiligen Staates im Treemap darstellt. 
-Mit der Interaktion Technik „Mouseover“ wird das ausgewählte Land in alle Visualisierunge im Dashboard hervorgehoben.
+Prototypen
 
-Ökologischer Fußabdruck der G20-Staaten
+Visualisierung mit D3.js
 
-
-
-Ökologischer Fußabdruck pro Kopf G20-Staaten
-
-
-
-Säulendiagramm
-
-Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren, wurde getroffen da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst im Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm, das selbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt und analog dazu andersrum
-
-
-
-Linendiagramm
-Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der Zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei, den Farben aus den Treemaps (Fußabdruck=rot &amp;amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist ob eine Reserve oder ein Defizit besteht.
-
-Bilder
-
-Prototyp
-
-Implementierung
 Für die Implementierung des Prototyps haben wir uns für eine Webseite entschieden. Diese wurde mit den folgenden Technologien umgesetzt:
 
 
@@ -338,16 +880,284 @@ Für die Implementierung des Prototyps haben wir uns für eine Webseite entschie
   Bootstrap
 
 
-Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Für das Ausführen der Webseite wurde per Node.js ausgeführt.
-Hier evtl. Bild des D3.js-Gerüsts für die Treemap
-Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen- und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemap’s dargestellt wird. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.
+Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Das Ausführen der Webseite wurde mit Hilfe von Node.js durchgeführt.
+Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen Vergleich und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemaps dargestellt wurden. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.
 
-Vergleich der Framworks amcharts und D3.js
-Mit der Bibliothek amCharts lässt sich anhand eines Frameworks relativ schnell eine Drill-Down-Treemap erstellen. Anschließend muss die Demo-Version mit eigenen Daten versehen werden.
+Treemap
+Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treemaps benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt werden. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt werden. Für den optischen Vergleich unter den Werten der beiden Treemaps wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke der oberen Treemap mit den Rechtecken der unteren Treemap optisch vergleichen. Dies wurde realisiert, indem die Treemap, die als Summe seiner dargestellten Werte kleiner ist als die andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben dem optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den vergleichenden Werten eine Reserve oder ein Defizit besteht. In den ersten Ebenen der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fußabdruck und Biokapazität abgebildet. In der oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als Pro-Kopf-Einheit dargestellt. In der unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durch ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (in der oberen Treemap) und der Biokapazität (in der unteren Treemap) des jeweiligen Staates in der Treemap darstellt. 
+Mit der Interaktiontechnik „Mouseover“ wird das ausgewählte Land in alle Visualisierungen im Dashboard hervorgehoben.
+
+Ökologischer Fußabdruck der G20-Staaten
+
+
+
+Ökologischer Fußabdruck pro Kopf G20-Staaten
+
+
+
+Das folgende Code-Fragment beschreibt grob, wie eine Treemap in D3.js generiert wird.
+
+function makeBioChart(path, year){
+  document.getElementById(&quot;chart&quot;).insertBefore(bioSvg.node().parentNode, document.getElementById(&quot;mainCard&quot;));
+
+  d3.json(path, function (rawdata) {
+	.
+	.
+	.
+  }
+
+
+Nachfolgend findet per nest()-Methode eine Verschachtelung innerhalb der Treemap statt.
+    var data = d3.nest()
+      .key(function(d) { return d[&#39;year&#39;]})
+      .key(function(d) { return d[&#39;Country Name&#39;]})
+      .rollup(function(d) { return [
+        {name: &quot;Built-Up Land&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Built-up Land&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Carbon&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Carbon&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Cropland&quot;, count: parseFloat(( &quot;&quot; + d[0][&quot;Cropland&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Fishing Grounds&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Fishing Grounds&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Forest Products&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Forest Products&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+        {name: &quot;Grazing Land&quot;, count: parseFloat((&quot;&quot;+d[0][&quot;Grazing Land&quot;]).replace(&quot;,&quot;, &quot;.&quot;)).toFixed(2)},
+      ]
+      })
+      .entries(rawdata);
+    
+
+
+Säulendiagramm
+
+Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren wurde getroffen, da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das Abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst in Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard, auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm dasselbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt. Dies gilt analog auch im umgekehrten Sinne.
+
+
+
+Anbei kann man sehen, wie anhand der makeBarChart-Methode das Säulendiagramm aufgebaut ist.
+
+function makeBarChart(path, capitaDef, year){
+  document.getElementById(&quot;chart&quot;).insertBefore(barSvg.node().parentNode, document.getElementById(&quot;mainCard&quot;));
+
+  d3.json(&quot;./data/Defizit.json&quot;, function(error, rawdata) {
+    if (error) throw error;
+  
+    // format the data
+    var data = []
+    for(var i in rawdata){
+      if(rawdata[i].year == year){
+          data.push({name: rawdata[i][&quot;Country Name&quot;], value: rawdata[i][capitaDef]})
+          }
+      }
+  
+    data = data.sort(function(a, b){return parseFloat(b.value) - parseFloat(a.value)});
+.
+.
+.
+}
+
+
+Linendiagramm
+Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei den Farben aus den Treemaps (Fußabdruck=rot &amp;amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist, ob eine Reserve oder ein Defizit besteht.
+
+Visualisierung mit amChart
+Amcharts V4 ist die aktuellste Version von amChart. Diese Version unterstütz die Interaktionen zwischen den Charts. Mit Hilfe der Dokumentationen hat man ein Überblick über die Möglichkeiten, um die Charts zu bauen, verändern oder anzupassen. Auch die Demos und die Beispiele auf der Webseite von amChart waren sehr hilfreich um unser Dashboard zu bauen. Da Version 4 von amChart relativ neu und nicht so bekannt ist und sich deutlich von den vorherigen Versionen unterscheidet, haben wir uns dafür entschieden, die einzelnen Elemente der Webseite genauer per Code-Fragmente zu erläutern. Zudem werden die Charakteristika des Frameworks amChart untersucht und per Ampel-Prinzip bewertet.
+
+
+  Kostenlos solange man es nicht kommerziell verwendet
+  Design ist schön und dynamisch
+  TypeScript Unterstützung
+  Code ist verständlich
+  Dynamik braucht kein extra code
+  Dokumentation ist OK
+  Treemap hat wenige Methoden
+  Internet Community, weil die Version 4 sehr aktuell und noch unbekannt ist
+
+
+
+
+Library
+Das Dashboard wurde mit JavaScript geschrieben und basiert auf der JavaScript-Laufzeitumgebung NodeJS. Zusätzlich nutzten wir das Framework ExpressJS, um eine statische Website zu erstellen.
+Alle Daten waren in ein JSON-Objekt namens data.json gespeichert. Problematisch war es, dieses JSON-Objekt anzubinden bzw. zu filtern. Es war zeitaufwendig herauszufinden, wie man die data.json filtert, um diese an den Charts anzubinden, da die data.json sehr groß und komplex war.
+Die Library lodash bietet einige Hilfsfunktionen, um die data.json zu filtern. Es war am Ende mehr Filter-Code (260 Liniecode) als Dashboard-Code (180 Liniecode). Es wäre einfacher, für jedes Chart eine separate JSON-Datei mit den jeweiligen Daten zu haben.
+
+container
+Es empfehlt sich ein amChart-Container zu erstellen, um alle Charts zu erstellen und eine Dashboard-Sicht zu generieren, damit eine bessere Übersicht für die Interaktion zwischen den Charts dargestellt werden kann. Änderungen in HTML oder CSS, um das Dashboard anzupassen bzw. zu ändern, sind nicht mehr notwendig. 
+Die Treemaps sind unterschiedlich groß, weil diese sich an den Zahlen sich orientieren. Je größer die Zahlen, desto größer die Treemap.
+
+var container = am4core.create(&quot;chartdiv&quot;, am4core.Container); 
+container.width = am4core.percent(100);
+container.height = am4core.percent(100);
+
+
+Treemap
+Wir haben zuerst zwei Treemaps erstellt, wie auf der amchart-Webseite vorgeschrieben, und diese an den Container positioniert.
+
+Biocapacity Treemap (treemapGreen)
+In dieser Treemap haben wir einen sogenannten Simple-Treemap erstellt, um die Biokapazität und den Key zu definieren, um diese später an das data.json zu verknüpfen.
+
+var treemapGreen = container.createChild(am4charts.TreeMap);
+    treemapGreen.hiddenState.properties.opacity = 0;
+    treemapGreen.align = &quot;right&quot;;
+    treemapGreen.minGridDistance = 100;
+    treemapGreen.width = am4core.percent(50);
+    treemapGreen.height = am4core.percent(50);
+    // keys
+    treemapGreen.homeText = &quot;Biocapacity&quot;;
+    treemapGreen.dataFields.color = &quot;color&quot;;
+    treemapGreen.dataFields.value = &quot;value&quot;;
+    treemapGreen.dataFields.name = &quot;name&quot;;
+
+
+
+Ecological Footprint Treemap (treemapRed)
+Hier würde eine Drill-Down-Treemap erstellt. Damit kann man auf ein Land klicken, um die dazugehörigen Children-Daten anzugzeigen. Die Children-Daten stellen hier die spezifischen Daten eines Landes dar. Beim Klicken auf ein Land werden die spezifischen Daten dargestellt.
+
+var treemapRed = container.createChild(am4charts.TreeMap);
+    treemapRed.hiddenState.properties.opacity = 0;
+    treemapRed.width = am4core.percent(50);
+    treemapRed.height = am4core.percent(50);
+    treemapRed.align = &quot;left&quot;;
+    treemapRed.padding(0, 0, 0, 0);
+    treemapRed.data = processData(data);
+    treemapRed.maxLevels = 1;
+    treemapRed.dataFields.value = &quot;value&quot;;
+    treemapRed.dataFields.name = &quot;name&quot;;
+    treemapRed.dataFields.color = &quot;color&quot;;
+    //Children Data
+    treemapRed.dataFields.children = &quot;children&quot;;
+    treemapRed.homeText = &quot;Ecological Footprint&quot;;
+
+
+
+
+Treemap Text
+Dieser Code ist für die Treemaps, um die einzelnen Ebenen mit Text und Mausverhalten darzustellen.
+Bsp. 
+Erste  ebene  = var level0SeriesTemplate
+Zweite ebene  = var level1SeriesTemplate
+
+treemap.navigationBar = new am4charts.NavigationBar();
+
+    var level0SeriesTemplate = treemap.seriesTemplates.create(&quot;0&quot;);
+    level0SeriesTemplate.strokeWidth = 2;
+    var bullet0 = level0SeriesTemplate.bullets.push(
+        new am4charts.LabelBullet()
+    );
+    bullet0.locationX = 0.5;
+    bullet0.locationY = 0.5;
+    bullet0.label.text = &quot;{name}&quot;;
+    bullet0.label.fill = am4core.color(&quot;#ffffff&quot;);
+
+Treemap hover methoden
+Dieser Code ist für den Schwebeeffekt über die Treemaps zuständig. Hier war es aus zeitlichen Gründen nicht möglich, dass sich das Verhalten bei beiden Treemaps gleich ist. Geplant war, dass wenn man auf der Treemap auf ein Land mit den Mauszeiger druber schwebt, dass das jeweilige Land auf der anderen Treemap gleichesmaßen hervorgeboen wird.
+    // ein hover erstellen
+    var hoverState = level0SeriesTemplate.columns.template.states.create(&quot;hover&quot;);
+    // beim drauf havern dimmen
+    hoverState.adapter.add(&quot;fill&quot;, (fill, target) =&amp;gt; {
+        return am4core.color(am4core.colors.brighten(fill.rgb, -0.2));
+    });
+
+XYChart
+Dieser Chart ist etwas übersichtlicher als das Treemap und ist besser dokumentiert.
+    var chart = container.createChild(am4charts.XYChart);
+    chart.height = am4core.percent(50);
+    chart.valign = &quot;bottom&quot;;
+    chart.hiddenState.properties.opacity = 0;
+
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.tooltip.disabled = true;
+
+series
+Hier wird das Verlauf der Zeitlinie erstellt.
+
+Biocapacity linie
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = &quot;date&quot;;
+    series.dataFields.valueY = &quot;Bio&quot;;
+
+
+Ecological linie
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = &quot;date&quot;;
+    series.dataFields.valueY = &quot;Eco&quot;;
+
+
+
+Darstellung und Feature anpassung.
+//farbfläche und die anzeige info gesetzt
+    series.fill = am4core.color(&quot;#DC143C&quot;);
+    series.fillOpacity = 0.3;
+    series.sequencedInterpolation = true;
+    series.defaultState.transitionDuration = 1500;
+    series.stroke = &quot;#228B22&quot;;
+    series.tensionX = 0.8;
+
+// info text setzten
+    series.tooltipText = &quot;Bio: {valueY.value}&quot;;
+
+// farbe 
+    series.fill = am4core.color(&quot;#228B22&quot;);
+    series.fillOpacity = 0.3;
+
+// maus Curser und zoom auswahl
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.xAxis = dateAxis;
+    chart.scrollbarX = new am4core.Scrollbar();
+
+
+
+
+Legende
+Die Legende funktioniert nur bei Simple-Treemap und XYChart. Bei der Drill-Down Treemap kam es zu einigen UI-Fehlern. Es wurde nur in dem XYChart verwendet, da es in der Treemap nicht notwendig ist.
+//zeige legende
+chart.legend = new am4charts.Legend();
+chart.legend.useDefaultMarker = true;
+
+// form der legende
+var marker = chart.legend.markers.template.children.getIndex(0);
+    marker.cornerRadius(12, 12, 12, 12);
+    marker.strokeWidth = 2;
+    marker.strokeOpacity = 1;
+    marker.stroke = am4core.color(&quot;#ccc&quot;);
+
+Ein schöner Effekt bei Legenden, dass man es auch als Filter benutzen kann.
+
+
+Events
+Wir haben leider sehr wenige interaktive Funktionen für unseren Treemaps gefunden. In Chrome-Debugger haben wir eine Methode gefunden, die den Namen des Zustandes liefert, welche momentan anzeigt wird.
+
+treemapRed.currentlyZoomed.name
+
+
+Nach einer sehr langen Suche in der amchart-Doku und Testen im Chrome-Debugger sind wir auf diese Funktion als Lösung für die Interaktionen gekommen.
+Wir verwenden treemapRed als Navigation Chart.
+//event methode für treemapRed mausklick
+treemapRed.events.on(&quot;hit&quot;, function (ev) {
+// zeigt name wo die Drilldown Treemap sich befindet
+treemapRed.currentlyZoomed.name
+}, this);
+
+Interaction
+Wichtig zu erwähnen ist es hier, dass zuerst die Charts erstellt und mit Daten geladen werden müssen, um eine Startseite anzuzeigen. Ansonsten startet man eine leere Seite und man kann auf nichts klicken. Hier wird mit allen Daten der G20-Ländern gestartet.
+
+
+
+In der Interaktion stößt man auf das Problem, dass die Klicks entweder zu spät oder zu früh reagieren. Wir haben die setTimeout()-Methode verwendet, um das Klickverhalten zu verbessern, weil die dynamische Visualisierung Zeit braucht. Der Name des aktuellen Zustands wird an die Methode für die Daten-Filterung übergeben.
+
+treemapRed.events.on(&quot;hit&quot;, function (ev) {
+  setTimeout(() =&amp;gt; {
+    // zeigt die G20 länder oder ein land verlaufs daten
+    axisChart.data = processTime(data, treemapRed.currentlyZoomed.name);
+    // zeigt spätzlefische länder daten oder zeigt die länder sicht
+    treemapGreen.data = processBio(data, treemapRed.currentlyZoomed.name);
+  }, 500);
+}, this);
+
+
+Vergleich der Framworks amCharts und D3.js
+Beim Arbeiten mit den beiden Frameworks fiel uns auf, dass sich mit amCharts deutlich leichter unterschiedliche Charts erstellen lassen. Zwar ist die Auswahl an Charts in amChart deutlich bschränkter als in D3.js, für unsere Zwecke hätte es allerdings gereicht. Allerdings war es uns nicht möglich, unsere Vorstellungen bzgl. der Interaktion der Treemaps, wie z.B. komplexeres Hovern einzelner Elemente, umzusetzen. Zudem gestaltete es sich als schwierig, die proportionalen Unterschiede zwischen den Treemaps deutlicher darzustellen. Dieses Problem hatten wir mit D3.js nicht. Allgemein lässt sich festhalten, dass mit D3.js deutlich besser Visualisierungen umsetzen lassen, jedoch bedarf es einiges an Einarbeitungszeit sich mit dem Framework vertraut zu machen.
 
 Erkenntnisse
 Unsere anfangs aufgestellte Hypothese, dass es erhebliche Unterschiede zwischen der absoluten- und der Pro-Kopf-Ansicht gibt, konnte bestätigt werden. 
-Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Länder aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
+Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Staaten aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
 Bei der Biokapazität ergibt sich ebenfalls ein neues Bild. Bei Ansicht der absoluten Werte führt Brasilien vor China. Da Brasilien aber mit seinen knapp 210 Millionen Einwohnern ein sehr bevölkerungsreiches Land ist, liegt es in der Pro-Kopf-Ansicht lediglich auf dem dritten Platz. Hier führt Kanada, gefolgt von Australien auf einem zweiten Rang. Des Weiteren lässt sich außerdem festhalten, dass China als vermeintlich größter Umweltverschmutzer bei der Pro Kopf-Ansicht zwar immer noch eine negative Bilanz aufweist, allerdings weisen fünf G20-Länder eine deutlich schlechtere Bilanz auf.
 
 Fazit
@@ -485,7 +1295,7 @@ Ferner stellte sich das Arbeiten mit dem zuvor gewählten Framework als problema
 				
 
 				<div itemprop="name">
-					<p class="subheadline">Yavuz Azal, Arif Bozkurt, Benedikt Herbst, Vu Tuannah, Thear Aldefai</p>
+					<p class="subheadline">Yavuz Azal, Arif Bozkurt, Benedikt Herbst, Vu Tuananh, Thaer Aldefai</p>
 					<h1>Der Ökologischer Fußabdruck der G20-Staaten</h1>
 				</div>
 			</header>
@@ -495,7 +1305,7 @@ Ferner stellte sich das Arbeiten mit dem zuvor gewählten Framework als problema
 
 			<div itemprop="articleSection">
 			<h2 id="abstract">Abstract</h2>
-<p>Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Diesen Verbrauch den wir erzeugen, wird als den ökologischen Fußabdruck dargestellt. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.</p>
+<p>Jeden Tag verbrauchen wir Resourcen der Erde und erzeugen Müll. Dabei vergessen wir, dass diese Resourcen der Erde endlich sind. Mittleweile verbauchen wir Menschn mehr Resourcen, als auf der Erde vorhanden sind. Dieser Verbrauch wird auch als ökologischer Fußabdruck bezeichnet. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten.</p>
 
 <h2 id="inhalt">Inhalt</h2>
 <ol>
@@ -508,69 +1318,71 @@ Ferner stellte sich das Arbeiten mit dem zuvor gewählten Framework als problema
       <li><a href="#Datenaufbereitung">Datenaufbereitung</a></li>
     </ol>
   </li>
-  <li><a href="#Visualisierung">Visualisierung</a>
+  <li><a href="#Prozess">Prozess</a></li>
+  <li><a href="#Prototypen">Prototypen</a>
     <ol>
-      <li><a href="#Prozess">Prozess</a></li>
-      <li><a href="#Treemap">Treemap</a></li>
-      <li><a href="#Säulendiagramm">Säulendiagramm</a></li>
-      <li><a href="#Linendiagramm">Linendiagramm</a></li>
+      <li><a href="#Visualisierung">Visualisierung mit D3.js</a>
+        <ol>
+          <li><a href="#Treemap">Treemap</a></li>
+          <li><a href="#Säulendiagramm">Säulendiagramm</a></li>
+          <li><a href="#Linendiagramm">Linendiagramm</a></li>
+          <li><a href="#Linendiagramm">Linendiagramm</a></li>
+        </ol>
+      </li>
+      <li><a href="#Visualisierung">Visualisierung mit amChart</a>
+        <ol>
+          <li><a href="#Library">Library</a></li>
+          <li><a href="#container">container</a></li>
+          <li><a href="#Treemap">Treemap</a>
+            <ol>
+              <li><a href="#Biocapacity">Biokapazität Treemap</a></li>
+              <li><a href="#Ökologischer Fußabdruck">Ökologischer Fußabdruck</a></li>
+              <li><a href="#Treemap Text">Treemap Text</a></li>
+              <li><a href="#Treemap hover methoden">Treemap hover methoden</a></li>
+            </ol>
+          </li>
+          <li><a href="#XYChart">XYChart</a>
+            <ol>
+              <li><a href="#series">series</a></li>
+              <li><a href="#Legende">Legende</a></li>
+            </ol>
+          </li>
+          <li><a href="#Events">Events</a></li>
+          <li><a href="#Interaction">Interaction</a></li>
+        </ol>
+      </li>
     </ol>
   </li>
-  <li><a href="#Prototyp/Ergebnisse">Prototyp/Ergebnisse</a></li>
-  <li><a href="#Implementierung">Implementierung</a></li>
+  <li><a href="#Vergleich der Framworks amCharts und D3.js">Vergleich der Framworks amCharts und D3.js</a></li>
+  <li><a href="#Erkenntnisse">Erkenntnisse</a></li>
   <li><a href="#Fazit">Fazit</a></li>
 </ol>
 
 <h2 id="einführung">Einführung</h2>
 <p>In diesem Semester wurden als Thema die Sustainable Development Goals der UN behandelt. 
 Diese beinhalten 17 Ziele zur nachhaltigen Entwicklung, die von den Vereinten Nationen erreicht werden sollen. 
-Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wird, findet ein Visualisierungsprojekt statt. In diesem Projekt konzentrieren wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltet. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem Positiven Wert eine Reserve und bei einem negativen Wert einen Defizit.</p>
+Die Ziele sollen bei der Sicherung einer nachhaltigen Entwicklung auf ökonomischer, sozialer sowie ökologischer Ebene behilflich sein. Im Rahmen der Lehrveranstaltung Grundlagen der Datenvisualisierung, die von Prof. Dr. Till Nagel an der Hochschule Mannheim gehalten wurde, fand ein Visualisierungsprojekt statt. In diesem Projekt konzentrierten wir uns auf den ökologischen Fußabdruck, welches mehrere Sustainable Development Goals beninhaltete. Für die Visualisierung wurden die Daten der G20-Staaten herangezogen. Der ökologischer Fußabdruck ist eine Metrik, mit der erfasst werden kann, wie viel Biokapazität vorhanden ist und wie diese genutzt wird, um unseren Lebensstandard aufrechtzuerhalten. Die Differenz zwischen der Biokapazität und dem ökologischen Fußabdruck ergibt bei einem positiven Wert eine Reserve und bei einem negativen Wert ein Defizit.</p>
 
 <h2 id="these">These</h2>
 <p>Ein hoher ökologischer Fußabdruck eines Landes besagt nicht, dass der ökologische Fußabdruck pro Kopf des jeweiligen Landes ebenfalls hoch sein muss.</p>
 
 <h2 id="daten">Daten</h2>
 <h3 id="datenquelle">Datenquelle</h3>
-<p>Die Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung Quelle:  <a href="https://www.footprintnetwork.org/">https://www.footprintnetwork.org/</a>. Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN seit 1961 bis 2014 zu verfügung gestellt und sind als CSV-Datei frei verfügabar.</p>
+<p>Das Global Footprint Network stellt Daten zum ökologischen Fußabdruck zur Verfügung (  <a href="https://www.footprintnetwork.org/">https://www.footprintnetwork.org/</a>). Es basiert auf einer einfachen, unkomplizierten Abrechnung. Die erhobenen Daten werden von der UN von 1961 bis 2014 zur verfügung gestellt und sind als CSV-Datei frei verfügabar.</p>
 
 <h3 id="datenerhebung">Datenerhebung</h3>
-<p>Für das Projekt wurden die G20-Staaten berücksichtigt, diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestandt keine Herausforderung bei der Beschaffung der Daten, weil diese Freizugänglich sind. Die benötigten Daten wurden seperate heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen Biokapazität (die im Ökosystem vorhandene Ressourcen die wir benötigen, um unser Lebensstand aufrecht zuhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh und Fleisch verbrauch). Die Daten sind jeweils für 
-ein ganzes Land und für pro Einwohner eines Landes vorhanden.</p>
+<p>Für das Projekt wurden die G20-Staaten berücksichtigt. Diese sind in der Datenbank des “Footprintnetwork” detailliert vorhanden. Es bestand keine Herausforderung bei der Beschaffung der Daten, weil diese frei zugänglich sind. Die benötigten Daten wurden seperat heruntergeladen, weil diese nicht aggregiert vorhanden waren. Die vorhandenen Daten setzen sich aus folgenden Informationen zusammen: Biokapazität (die im Ökosystem vorhandene Ressourcen, die wir benötigen, um unser Lebensstand aufrecht zu erhalten), ökologischen Fußabdruck (Verbrauch der natürlichen Ressourcenn im ökosystem), Built-Up-Land (benötigte Fläche für Infrastruktur), Carbon (Aufnahme von CO-Emission), Forest Products (Verbrauch Bauholz), Fishing Grounds (Fang und Verbrauch von Fisch), Cropland (Getreidekapazität) und Grazing Land (Weidevieh- und Fleischverbrauch). Die Daten sind jeweils für ein ganzes Land und für Einwohner eines Landes vorhanden.</p>
 
 <h3 id="datenaufbereitung">Datenaufbereitung</h3>
-<p>Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei, sind in eine Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma und Punktsetzungen wurden an das jeweilige Zielformate angepasst. Die separaten Daten für die einzelnen Länder wurden in eine Excel zusammengefügt für die erste Visualisierung in Tableau.</p>
-
-<h2 id="visualisierung">Visualisierung</h2>
+<p>Die erhobenen Daten wurden für die Analyse aufbereitet und bereinigt. Die Informationen in der CSV-Datei sind in einer Spalte vorhanden. Für die Weiterbearbeitung werden diese in separate Spalten aufgeteilt. Anschließend wurden diese auf Vollständigkeit überprüft und ggf. ergänzt/gelöscht. Die Zeichensezung für Komma- und Punktsetzungen wurden an das jeweilige Zielformat angepasst. Die separaten Daten für die einzelnen Länder wurden für die erste Visualisierung in Tableau in eine Excel-Datei zusammengefügt.</p>
 
 <h3 id="prozess">Prozess</h3>
-<p>Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.</p>
+<p>Im Visualisierungsprozess wurden die aggregierten Daten im ersten Schritt in Tableau visualisiert. Das Ziel dieses Prozesses war eine schnelle und einfache Visulisierung der Daten, um erste Erkenntnisse zu gewinnen und zu prüfen, ob die ausgewählten Visualisierungstechniken die These unterstützen. Die Ergebnisse der Visualisierungen waren eindeutig, die ausgewählten Visualisierungstechniken konnten die Daten nach den Anforderungen visualisieren.</p>
 
-<h3 id="treemap">Treemap</h3>
-<p>Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treempas benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt wird. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt wird. Für den optischen Vergleich unter den Werten der beiden Treemaps, wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke des oberen Treemaps mit den Rechtecken des unteren Treemaps optisch vergleichen. Dies wurde realisiert, indem das Treemap, das als Summe seiner dargestellten Werte, kleiner ist als das andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben den optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den Vergleichenden Werten eine Reserve oder ein Defizit besteht. In der ersten Ebene der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fusabdruck und Biokapazität abgebildet. Im oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als pro Kopf-Einheit dargestellt. Im unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durh ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (im oberen Treemap) und Biokapazität (im unteren Treemap) des jeweiligen Staates im Treemap darstellt. 
-Mit der Interaktion Technik „Mouseover“ wird das ausgewählte Land in alle Visualisierunge im Dashboard hervorgehoben.</p>
+<h2 id="prototypen">Prototypen</h2>
 
-<p>Ökologischer Fußabdruck der G20-Staaten</p>
+<h3 id="visualisierung-mit-d3js">Visualisierung mit D3.js</h3>
 
-<p><img src="/images/footprint/TreemapTotal.PNG" alt="" /></p>
-
-<p>Ökologischer Fußabdruck pro Kopf G20-Staaten</p>
-
-<p><img src="/images/footprint/TreemapCapita.PNG" alt="" /></p>
-
-<h3 id="säulendiagramm">Säulendiagramm</h3>
-
-<p>Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren, wurde getroffen da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst im Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm, das selbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt und analog dazu andersrum</p>
-
-<p><img src="/images/footprint/Saulendiagramm.PNG" alt="" /></p>
-
-<h3 id="linendiagramm">Linendiagramm</h3>
-<p>Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der Zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei, den Farben aus den Treemaps (Fußabdruck=rot &amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist ob eine Reserve oder ein Defizit besteht.</p>
-
-<p>Bilder</p>
-
-<h2 id="prototyp">Prototyp</h2>
-
-<h2 id="implementierung">Implementierung</h2>
 <p>Für die Implementierung des Prototyps haben wir uns für eine Webseite entschieden. Diese wurde mit den folgenden Technologien umgesetzt:</p>
 
 <ul>
@@ -580,16 +1392,284 @@ Mit der Interaktion Technik „Mouseover“ wird das ausgewählte Land in alle V
   <li>Bootstrap</li>
 </ul>
 
-<p>Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Für das Ausführen der Webseite wurde per Node.js ausgeführt.
-Hier evtl. Bild des D3.js-Gerüsts für die Treemap
-Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen- und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemap’s dargestellt wird. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.</p>
+<p>Anfangs hatten wir uns für die JavaScript-Bibliothek amCharts entschieden. Mit dieser hatten wir jedoch Probleme, unsere gewünschten Interaktionen darzustellen. Deshalb entschieden wir uns letztendlich für das Framework D3.js, da wir mit diesem unsere Interaktionen nach etwas Einarbeitungszeit besser umsetzen konnten. Das Ausführen der Webseite wurde mit Hilfe von Node.js durchgeführt.<br />
+Anhand der eingespeisten JSON-Datei, die sämtliche relevanten Daten für den totalen Vergleich und den Pro-Kopf-Vergleich enthält, visualisierten wir die Werte für den ökologischen Fußabdruck so, dass diese entsprechend ihrer prozentualen Werte auf den beiden Treemaps dargestellt wurden. So wird bspw. China in der totalen Ansicht als Land mit dem größten ökologischen Fußabdruck auch das größte Rechteck in der Treemap zuteil.</p>
 
-<h3 id="vergleich-der-framworks-amcharts-und-d3js">Vergleich der Framworks amcharts und D3.js</h3>
-<p>Mit der Bibliothek amCharts lässt sich anhand eines Frameworks relativ schnell eine Drill-Down-Treemap erstellen. Anschließend muss die Demo-Version mit eigenen Daten versehen werden.</p>
+<h4 id="treemap">Treemap</h4>
+<p>Für die Darstellung des ökologischen Fußabdrucks und der Biokapazität wurden zwei verschachtelte Treemaps benutzt. Eine Treemap dient der Visualisierung von hierarchischen Strukturen, die hierbei durch ineinander verschachtelte Rechtecke dargestellt werden. Damit können Größenverhältnisse veranschaulicht werden, indem die Flächen der Rechtecke proportional zur Größe der darzustellenden Werte gewählt werden. Für den optischen Vergleich unter den Werten der beiden Treemaps wurden diese dynamisch anhand der Größe angepasst. Damit lassen sich Rechtecke der oberen Treemap mit den Rechtecken der unteren Treemap optisch vergleichen. Dies wurde realisiert, indem die Treemap, die als Summe seiner dargestellten Werte kleiner ist als die andere Treemap, proportional zu den Werten mit der Größe seiner Fläche angepasst wird. Diese Funktion bietet neben dem optischen Vergleich unter den Treemaps auch die schnelle Übersicht darüber, ob bei den vergleichenden Werten eine Reserve oder ein Defizit besteht. In den ersten Ebenen der Treemaps werden alle G20-Staaten mit ihren absoluten Werten bzgl. Fußabdruck und Biokapazität abgebildet. In der oberen Treemap wird der ökologische Fußabdruck der G20-Staaten, entweder im Gesamtverbrauch oder als Pro-Kopf-Einheit dargestellt. In der unteren Treemap wird analog dazu die vorhandene Biokapazität dargestellt. Die zweite Ebene ist durch ein Klick-Event zu erreichen, welches die Zusammensetzung der Indikatoren für den Fußabdruck (in der oberen Treemap) und der Biokapazität (in der unteren Treemap) des jeweiligen Staates in der Treemap darstellt. 
+Mit der Interaktiontechnik „Mouseover“ wird das ausgewählte Land in alle Visualisierungen im Dashboard hervorgehoben.</p>
+
+<p><strong>Ökologischer Fußabdruck der G20-Staaten</strong></p>
+
+<p><img src="/images/footprint/TreemapperTotal.PNG" alt="" /></p>
+
+<p><strong>Ökologischer Fußabdruck pro Kopf G20-Staaten</strong></p>
+
+<p><img src="/images/footprint/TreemapCapita.PNG" alt="" /></p>
+
+<p>Das folgende Code-Fragment beschreibt grob, wie eine Treemap in D3.js generiert wird.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeBioChart</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">year</span><span class="p">){</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"chart"</span><span class="p">).</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">bioSvg</span><span class="p">.</span><span class="nx">node</span><span class="p">().</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"mainCard"</span><span class="p">));</span>
+
+  <span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">rawdata</span><span class="p">)</span> <span class="p">{</span>
+	<span class="p">.</span>
+	<span class="p">.</span>
+	<span class="p">.</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Nachfolgend findet per <code class="highlighter-rouge">nest()</code>-Methode eine Verschachtelung innerhalb der Treemap statt.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">nest</span><span class="p">()</span>
+      <span class="p">.</span><span class="nx">key</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]})</span>
+      <span class="p">.</span><span class="nx">key</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">[</span><span class="s1">'Country Name'</span><span class="p">]})</span>
+      <span class="p">.</span><span class="nx">rollup</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"Built-Up Land"</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nb">parseFloat</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"Built-up Land"</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"Carbon"</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nb">parseFloat</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"Carbon"</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"Cropland"</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nb">parseFloat</span><span class="p">((</span> <span class="s2">""</span> <span class="o">+</span> <span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"Cropland"</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"Fishing Grounds"</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nb">parseFloat</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"Fishing Grounds"</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"Forest Products"</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nb">parseFloat</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"Forest Products"</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"Grazing Land"</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nb">parseFloat</span><span class="p">((</span><span class="s2">""</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"Grazing Land"</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span>
+      <span class="p">]</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">rawdata</span><span class="p">);</span>
+    
+</code></pre></div></div>
+
+<h4 id="säulendiagramm">Säulendiagramm</h4>
+
+<p>Um die Länder bezüglich deren Reserve/Defizit untereinander zu vergleichen, wurde ein Säulendiagramm benutzt. Dabei wurden die Säulen nach den Werten Reserve/Defizit absteigend sortiert, damit auf einen Blick der Rang bzgl. „gutem Fußabdruck“ der Länder zu erkennen ist. Das Säulendiagramm, das sowohl positive als auch negative Werte darstellt, lässt durch die unterschiedlichen Farben der Säulen (grün für positive und rot für negative Werte) sofort erkennen, ob ein Land eine Reserve oder ein Defizit aufweist. Die Entscheidung, diese Reserven/Defizite der Länder mit dieser Visualisierungstechnik zu realisieren wurde getroffen, da sich ein Rang unter mehreren Objekten sehr gut mit einem Säulendiagramm darstellen lässt. Ob sich diese Visualisierungstechnik für das Abbilden von 20 Werten (G20-Staaten) eignet, musste jedoch erst in Tableau getestet werden, da man befürchtete, dass es zu unübersichtlich werden könnte. Selbstverständlich interagiert das Säulendiagramm mit den anderen Diagrammen auf dem Dashboard, auf dem sie auch vorhanden ist. Eine mögliche Interaktion ist zum Beispiel, dass ein anderes Jahr im Dashboard ausgewählt wird, woraufhin sich das Säulendiagramm direkt anpasst und die Werte des ausgewählten Jahres darstellt. Ebenfalls werden bei einem „Mouseover“ auf einem Land beim Säulendiagramm dasselbe Land auf den anderen Diagrammen des Dashboards mit einer Hervorhebung angezeigt. Dies gilt analog auch im umgekehrten Sinne.</p>
+
+<p><img src="/images/footprint/Saulendiagramm.PNG" alt="" /></p>
+
+<p>Anbei kann man sehen, wie anhand der <code class="highlighter-rouge">makeBarChart</code>-Methode das Säulendiagramm aufgebaut ist.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeBarChart</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">capitaDef</span><span class="p">,</span> <span class="nx">year</span><span class="p">){</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"chart"</span><span class="p">).</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">barSvg</span><span class="p">.</span><span class="nx">node</span><span class="p">().</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"mainCard"</span><span class="p">));</span>
+
+  <span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="s2">"./data/Defizit.json"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">rawdata</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+  
+    <span class="c1">// format the data</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">rawdata</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">rawdata</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">year</span> <span class="o">==</span> <span class="nx">year</span><span class="p">){</span>
+          <span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="nx">rawdata</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s2">"Country Name"</span><span class="p">],</span> <span class="na">value</span><span class="p">:</span> <span class="nx">rawdata</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">capitaDef</span><span class="p">]})</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+  
+    <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">-</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span><span class="p">)});</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="linendiagramm">Linendiagramm</h4>
+<p>Durch die begrenzte Zeit konnte die Visualisierung des Linendiagramms nicht umgesetzt werden. Das Liniendiagramm ist als Konzept dargestellt. Für die Veranschaulichung der zeitlichen Entwicklung des ökologischen Fußabdrucks und der Biokapazität eines Staates wurde ein Liniendiagramm verwendet. Hier ist zu erkennen, wie sich diese Werte von 1961 bis 2014 entwickelt haben. Die Farben der Linien wurden dabei den Farben aus den Treemaps (Fußabdruck=rot &amp; Biokapazität=grün) angepasst. Dadurch ist auf einem Blick zu erkennen, ob und zu welchem Zeitpunkt die Linie des Fußabdrucks über oder unter der Linie der Biokapazität ist, wodurch abzuleiten ist, ob eine Reserve oder ein Defizit besteht.</p>
+
+<h3 id="visualisierung-mit-amchart">Visualisierung mit amChart</h3>
+<p><a href="https://www.amcharts.com/docs/v4/">Amcharts V4</a> ist die aktuellste Version von amChart. Diese Version unterstütz die Interaktionen zwischen den Charts. Mit Hilfe der Dokumentationen hat man ein Überblick über die Möglichkeiten, um die Charts zu bauen, verändern oder anzupassen. Auch die Demos und die Beispiele auf der Webseite von amChart waren sehr hilfreich um unser Dashboard zu bauen. Da Version 4 von amChart relativ neu und nicht so bekannt ist und sich deutlich von den vorherigen Versionen unterscheidet, haben wir uns dafür entschieden, die einzelnen Elemente der Webseite genauer per Code-Fragmente zu erläutern. Zudem werden die Charakteristika des Frameworks amChart untersucht und per Ampel-Prinzip bewertet.</p>
+
+<ul>
+  <li><span style="color:green">Kostenlos solange man es nicht kommerziell verwendet</span></li>
+  <li><span style="color:green ">Design ist schön und dynamisch</span></li>
+  <li><span style="color:green ">TypeScript Unterstützung</span></li>
+  <li><span style="color:green ">Code ist verständlich</span></li>
+  <li><span style="color:green">Dynamik braucht kein extra code</span></li>
+  <li><span style="color:green">Dokumentation ist OK</span></li>
+  <li><span style="color:GoldenRod">Treemap hat wenige Methoden</span></li>
+  <li><span style="color:red ">Internet Community, weil die Version 4 sehr aktuell und noch unbekannt ist</span></li>
+</ul>
+
+<p><img src="/images/footprint/amChart.gif" alt="amChart" /></p>
+
+<h4 id="library">Library</h4>
+<p>Das Dashboard wurde mit <a href="https://www.javascript.com"><code class="highlighter-rouge">JavaScript</code></a> geschrieben und basiert auf der JavaScript-Laufzeitumgebung <a href="https://nodejs.org"><code class="highlighter-rouge">NodeJS</code></a>. Zusätzlich nutzten wir das Framework <a href="https://expressjs.com"><code class="highlighter-rouge">ExpressJS</code></a>, um eine statische Website zu erstellen.<br />
+Alle Daten waren in ein JSON-Objekt namens data.json gespeichert. Problematisch war es, dieses JSON-Objekt anzubinden bzw. zu filtern. Es war zeitaufwendig herauszufinden, wie man die data.json filtert, um diese an den Charts anzubinden, da die data.json sehr groß und komplex war.<br />
+Die Library <a href="https://lodash.com"><code class="highlighter-rouge">lodash</code></a> bietet einige Hilfsfunktionen, um die data.json zu filtern. Es war am Ende mehr Filter-Code (<span style="color:gray">260 Liniecode</span>) als Dashboard-Code (<span style="color:gray">180 Liniecode</span>). Es wäre einfacher, für jedes Chart eine separate JSON-Datei mit den jeweiligen Daten zu haben.</p>
+
+<h4 id="container"><a href="https://www.amcharts.com/docs/v4/concepts/svg-engine/containers/">container</a></h4>
+<p>Es empfehlt sich ein amChart-Container zu erstellen, um alle Charts zu erstellen und eine Dashboard-Sicht zu generieren, damit eine bessere Übersicht für die Interaktion zwischen den Charts dargestellt werden kann. Änderungen in HTML oder CSS, um das Dashboard anzupassen bzw. zu ändern, sind nicht mehr notwendig. <br />
+Die Treemaps sind unterschiedlich groß, weil diese sich an den Zahlen sich orientieren. Je größer die Zahlen, desto größer die Treemap.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"chartdiv"</span><span class="p">,</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">Container</span><span class="p">);</span> 
+<span class="nx">container</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="treemap-1"><a href="https://www.amcharts.com/docs/v4/chart-types/treemap/">Treemap</a></h4>
+<p>Wir haben zuerst zwei Treemaps erstellt, wie auf der amchart-Webseite vorgeschrieben, und diese an den Container positioniert.</p>
+
+<h5 id="biocapacity-treemap-treemapgreen">Biocapacity Treemap (treemapGreen)</h5>
+<p>In dieser Treemap haben wir einen sogenannten Simple-Treemap erstellt, um die Biokapazität und den Key zu definieren, um diese später an das data.json zu verknüpfen.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">treemapGreen</span> <span class="o">=</span> <span class="nx">container</span><span class="p">.</span><span class="nx">createChild</span><span class="p">(</span><span class="nx">am4charts</span><span class="p">.</span><span class="nx">TreeMap</span><span class="p">);</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">hiddenState</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">align</span> <span class="o">=</span> <span class="s2">"right"</span><span class="p">;</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">minGridDistance</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="c1">// keys</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">homeText</span> <span class="o">=</span> <span class="s2">"Biocapacity"</span><span class="p">;</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">"color"</span><span class="p">;</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"value"</span><span class="p">;</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"name"</span><span class="p">;</span>
+</code></pre></div></div>
+<p><img src="/images/footprint/treemapGreen.png" alt="" width="300" height="500" /></p>
+
+<h5 id="ecological-footprint-treemap-treemapred">Ecological Footprint Treemap (treemapRed)</h5>
+<p>Hier würde eine Drill-Down-Treemap erstellt. Damit kann man auf ein Land klicken, um die dazugehörigen Children-Daten anzugzeigen. Die Children-Daten stellen hier die spezifischen Daten eines Landes dar. Beim Klicken auf ein Land werden die spezifischen Daten dargestellt.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">treemapRed</span> <span class="o">=</span> <span class="nx">container</span><span class="p">.</span><span class="nx">createChild</span><span class="p">(</span><span class="nx">am4charts</span><span class="p">.</span><span class="nx">TreeMap</span><span class="p">);</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">hiddenState</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">align</span> <span class="o">=</span> <span class="s2">"left"</span><span class="p">;</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">padding</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">processData</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">maxLevels</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"value"</span><span class="p">;</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"name"</span><span class="p">;</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">"color"</span><span class="p">;</span>
+    <span class="c1">//Children Data</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">children</span> <span class="o">=</span> <span class="s2">"children"</span><span class="p">;</span>
+    <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">homeText</span> <span class="o">=</span> <span class="s2">"Ecological Footprint"</span><span class="p">;</span>
+</code></pre></div></div>
+<p><img src="/images/footprint/treemapWorld.png" alt="" width="300" height="500" />
+<img src="/images/footprint/treemapChina.png" alt="" width="300" height="500" /></p>
+
+<h5 id="treemap-text">Treemap Text</h5>
+<p>Dieser Code ist für die Treemaps, um die einzelnen Ebenen mit Text und Mausverhalten darzustellen.
+Bsp. <br />
+Erste  ebene  = var level0SeriesTemplate<br />
+Zweite ebene  = var level1SeriesTemplate</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">treemap</span><span class="p">.</span><span class="nx">navigationBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">NavigationBar</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">level0SeriesTemplate</span> <span class="o">=</span> <span class="nx">treemap</span><span class="p">.</span><span class="nx">seriesTemplates</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"0"</span><span class="p">);</span>
+    <span class="nx">level0SeriesTemplate</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bullet0</span> <span class="o">=</span> <span class="nx">level0SeriesTemplate</span><span class="p">.</span><span class="nx">bullets</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">LabelBullet</span><span class="p">()</span>
+    <span class="p">);</span>
+    <span class="nx">bullet0</span><span class="p">.</span><span class="nx">locationX</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">bullet0</span><span class="p">.</span><span class="nx">locationY</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">bullet0</span><span class="p">.</span><span class="nx">label</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s2">"{name}"</span><span class="p">;</span>
+    <span class="nx">bullet0</span><span class="p">.</span><span class="nx">label</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="s2">"#ffffff"</span><span class="p">);</span>
+</code></pre></div></div>
+<h5 id="treemap-hover-methoden">Treemap hover methoden</h5>
+<p>Dieser Code ist für den Schwebeeffekt über die Treemaps zuständig. Hier war es aus zeitlichen Gründen nicht möglich, dass sich das Verhalten bei beiden Treemaps gleich ist. Geplant war, dass wenn man auf der Treemap auf ein Land mit den Mauszeiger druber schwebt, dass das jeweilige Land auf der anderen Treemap gleichesmaßen hervorgeboen wird.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// ein hover erstellen</span>
+    <span class="kd">var</span> <span class="nx">hoverState</span> <span class="o">=</span> <span class="nx">level0SeriesTemplate</span><span class="p">.</span><span class="nx">columns</span><span class="p">.</span><span class="nx">template</span><span class="p">.</span><span class="nx">states</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s2">"hover"</span><span class="p">);</span>
+    <span class="c1">// beim drauf havern dimmen</span>
+    <span class="nx">hoverState</span><span class="p">.</span><span class="nx">adapter</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"fill"</span><span class="p">,</span> <span class="p">(</span><span class="nx">fill</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="nx">am4core</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">brighten</span><span class="p">(</span><span class="nx">fill</span><span class="p">.</span><span class="nx">rgb</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">));</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+<h4 id="xychart"><a href="https://www.amcharts.com/docs/v4/chart-types/xy-chart/">XYChart</a></h4>
+<p>Dieser Chart ist etwas übersichtlicher als das Treemap und ist besser dokumentiert.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">container</span><span class="p">.</span><span class="nx">createChild</span><span class="p">(</span><span class="nx">am4charts</span><span class="p">.</span><span class="nx">XYChart</span><span class="p">);</span>
+    <span class="nx">chart</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="nx">chart</span><span class="p">.</span><span class="nx">valign</span> <span class="o">=</span> <span class="s2">"bottom"</span><span class="p">;</span>
+    <span class="nx">chart</span><span class="p">.</span><span class="nx">hiddenState</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">dateAxis</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">xAxes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">DateAxis</span><span class="p">());</span>
+    <span class="kd">var</span> <span class="nx">valueAxis</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">yAxes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">ValueAxis</span><span class="p">());</span>
+    <span class="nx">valueAxis</span><span class="p">.</span><span class="nx">tooltip</span><span class="p">.</span><span class="nx">disabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</code></pre></div></div>
+<h5 id="series"><a href="https://www.amcharts.com/docs/v4/concepts/series/">series</a></h5>
+<p>Hier wird das Verlauf der Zeitlinie erstellt.<br />
+<br />
+Biocapacity linie</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">series</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">LineSeries</span><span class="p">());</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">dateX</span> <span class="o">=</span> <span class="s2">"date"</span><span class="p">;</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">valueY</span> <span class="o">=</span> <span class="s2">"Bio"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Ecological linie</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">series</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">LineSeries</span><span class="p">());</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">dateX</span> <span class="o">=</span> <span class="s2">"date"</span><span class="p">;</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">dataFields</span><span class="p">.</span><span class="nx">valueY</span> <span class="o">=</span> <span class="s2">"Eco"</span><span class="p">;</span>
+</code></pre></div></div>
+<p><img src="/images/footprint/selectAxesZoomSelect.png" alt="axes" /></p>
+
+<p>Darstellung und Feature anpassung.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//farbfläche und die anzeige info gesetzt</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="s2">"#DC143C"</span><span class="p">);</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">fillOpacity</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">sequencedInterpolation</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">defaultState</span><span class="p">.</span><span class="nx">transitionDuration</span> <span class="o">=</span> <span class="mi">1500</span><span class="p">;</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="s2">"#228B22"</span><span class="p">;</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">tensionX</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>
+
+<span class="c1">// info text setzten</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">tooltipText</span> <span class="o">=</span> <span class="s2">"Bio: {valueY.value}"</span><span class="p">;</span>
+
+<span class="c1">// farbe </span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">fill</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="s2">"#228B22"</span><span class="p">);</span>
+    <span class="nx">series</span><span class="p">.</span><span class="nx">fillOpacity</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+
+<span class="c1">// maus Curser und zoom auswahl</span>
+    <span class="nx">chart</span><span class="p">.</span><span class="nx">cursor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">XYCursor</span><span class="p">();</span>
+    <span class="nx">chart</span><span class="p">.</span><span class="nx">cursor</span><span class="p">.</span><span class="nx">xAxis</span> <span class="o">=</span> <span class="nx">dateAxis</span><span class="p">;</span>
+    <span class="nx">chart</span><span class="p">.</span><span class="nx">scrollbarX</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">Scrollbar</span><span class="p">();</span>
+</code></pre></div></div>
+<p><img src="/images/footprint/zoom.png" alt="axes" />
+<img src="/images/footprint/selectAxesZoom.png" alt="axes" /></p>
+
+<h5 id="legende"><a href="https://www.amcharts.com/docs/v4/concepts/legend/">Legende</a></h5>
+<p>Die Legende funktioniert nur bei Simple-Treemap und XYChart. Bei der Drill-Down Treemap kam es zu einigen UI-Fehlern. Es wurde nur in dem XYChart verwendet, da es in der Treemap nicht notwendig ist.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//zeige legende</span>
+<span class="nx">chart</span><span class="p">.</span><span class="nx">legend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">am4charts</span><span class="p">.</span><span class="nx">Legend</span><span class="p">();</span>
+<span class="nx">chart</span><span class="p">.</span><span class="nx">legend</span><span class="p">.</span><span class="nx">useDefaultMarker</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// form der legende</span>
+<span class="kd">var</span> <span class="nx">marker</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">legend</span><span class="p">.</span><span class="nx">markers</span><span class="p">.</span><span class="nx">template</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">getIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nx">marker</span><span class="p">.</span><span class="nx">cornerRadius</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+    <span class="nx">marker</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">marker</span><span class="p">.</span><span class="nx">strokeOpacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">marker</span><span class="p">.</span><span class="nx">stroke</span> <span class="o">=</span> <span class="nx">am4core</span><span class="p">.</span><span class="nx">color</span><span class="p">(</span><span class="s2">"#ccc"</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Ein schöner Effekt bei Legenden, dass man es auch als Filter benutzen kann.<br />
+<img src="/images/footprint/axesfilter.png" alt="" width="300" height="500" /></p>
+
+<h4 id="events"><a href="https://www.amcharts.com/docs/v4/concepts/event-listeners/">Events</a></h4>
+<p>Wir haben leider sehr wenige interaktive Funktionen für unseren Treemaps gefunden. In Chrome-Debugger haben wir eine Methode gefunden, die den Namen des Zustandes liefert, welche momentan anzeigt wird.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>treemapRed.currentlyZoomed.name
+</code></pre></div></div>
+
+<p>Nach einer sehr langen Suche in der amchart-Doku und Testen im Chrome-Debugger sind wir auf diese Funktion als Lösung für die Interaktionen gekommen.<br />
+Wir verwenden treemapRed als Navigation Chart.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//event methode für treemapRed mausklick</span>
+<span class="nx">treemapRed</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"hit"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// zeigt name wo die Drilldown Treemap sich befindet</span>
+<span class="nx">treemapRed</span><span class="p">.</span><span class="nx">currentlyZoomed</span><span class="p">.</span><span class="nx">name</span>
+<span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</code></pre></div></div>
+<h4 id="interaction">Interaction</h4>
+<p>Wichtig zu erwähnen ist es hier, dass zuerst die Charts erstellt und mit Daten geladen werden müssen, um eine Startseite anzuzeigen. Ansonsten startet man eine leere Seite und man kann auf nichts klicken. Hier wird mit allen Daten der G20-Ländern gestartet.<br /></p>
+
+<p><img src="/images/footprint/start.png" alt="start" /></p>
+
+<p>In der Interaktion stößt man auf das Problem, dass die Klicks entweder zu spät oder zu früh reagieren. Wir haben die <code class="highlighter-rouge">setTimeout()</code>-Methode verwendet, um das Klickverhalten zu verbessern, weil die dynamische Visualisierung Zeit braucht. Der Name des aktuellen Zustands wird an die Methode für die Daten-Filterung übergeben.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">treemapRed</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"hit"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// zeigt die G20 länder oder ein land verlaufs daten</span>
+    <span class="nx">axisChart</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">processTime</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">currentlyZoomed</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="c1">// zeigt spätzlefische länder daten oder zeigt die länder sicht</span>
+    <span class="nx">treemapGreen</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">processBio</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">treemapRed</span><span class="p">.</span><span class="nx">currentlyZoomed</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="vergleich-der-framworks-amcharts-und-d3js">Vergleich der Framworks amCharts und D3.js</h3>
+<p>Beim Arbeiten mit den beiden Frameworks fiel uns auf, dass sich mit amCharts deutlich leichter unterschiedliche Charts erstellen lassen. Zwar ist die Auswahl an Charts in amChart deutlich bschränkter als in D3.js, für unsere Zwecke hätte es allerdings gereicht. Allerdings war es uns nicht möglich, unsere Vorstellungen bzgl. der Interaktion der Treemaps, wie z.B. komplexeres Hovern einzelner Elemente, umzusetzen. Zudem gestaltete es sich als schwierig, die proportionalen Unterschiede zwischen den Treemaps deutlicher darzustellen. Dieses Problem hatten wir mit D3.js nicht. Allgemein lässt sich festhalten, dass mit D3.js deutlich besser Visualisierungen umsetzen lassen, jedoch bedarf es einiges an Einarbeitungszeit sich mit dem Framework vertraut zu machen.</p>
 
 <h2 id="erkenntnisse">Erkenntnisse</h2>
 <p>Unsere anfangs aufgestellte Hypothese, dass es erhebliche Unterschiede zwischen der absoluten- und der Pro-Kopf-Ansicht gibt, konnte bestätigt werden. 
-Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Länder aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
+Während im Jahr 2014 in der absoluten Ansicht China bei weitem den höchsten ökologischen Fußabdruck aller G20-Staaten aufweist, führen bei den Pro-Kopf-Werten die Vereinigten Staaten, dicht gefolgt von Kanada. 
 Bei der Biokapazität ergibt sich ebenfalls ein neues Bild. Bei Ansicht der absoluten Werte führt Brasilien vor China. Da Brasilien aber mit seinen knapp 210 Millionen Einwohnern ein sehr bevölkerungsreiches Land ist, liegt es in der Pro-Kopf-Ansicht lediglich auf dem dritten Platz. Hier führt Kanada, gefolgt von Australien auf einem zweiten Rang. Des Weiteren lässt sich außerdem festhalten, dass China als vermeintlich größter Umweltverschmutzer bei der Pro Kopf-Ansicht zwar immer noch eine negative Bilanz aufweist, allerdings weisen fünf G20-Länder eine deutlich schlechtere Bilanz auf.</p>
 
 <h2 id="fazit">Fazit</h2>
